@@ -3,7 +3,7 @@ namespace Assets.Scripts.Data
 {
     public class EnemyEntity : Entity, IEnemyAvater
     {
-        private class PropName{
+        public class PropName{
             public const string ID = "id";
             public const string NAME = "name";
             public const string LEVEL = "level";
@@ -40,48 +40,24 @@ namespace Assets.Scripts.Data
         public float defWind;
         public float crit;
         public float critRate;
-        public int dropNum;
-        public int[] dropList;
 
-        public override void SetProperties(EntityProperties ep)
+        public EnemyEntity() { }
+
+        public EnemyEntity(EnemyEntity entity)
         {
-            properties = ep;
         }
 
-        public override void Init(int entityId)
-        {
-            this.entityId = entityId;
-            id = properties.GetIntValue(PropName.ID);
-            name = properties.GetStringValue(PropName.NAME);
-            level = properties.GetIntValue(PropName.LEVEL);
-            hp = properties.GetFloatValue(PropName.HP);
-            atk = properties.GetFloatValue(PropName.ATK);
-            atkRay = properties.GetFloatValue(PropName.ATK_RAY);
-            atkIce = properties.GetFloatValue(PropName.ATK_ICE);
-            atkFire = properties.GetFloatValue(PropName.ATK_FIRE);
-            atkWind = properties.GetFloatValue(PropName.ATK_WIND);
-            def = properties.GetFloatValue(PropName.DEF);
-            defRay = properties.GetFloatValue(PropName.DEF_RAY);
-            defIce = properties.GetFloatValue(PropName.DEF_ICE);
-            defFire = properties.GetFloatValue(PropName.DEF_FIRE);
-            defWind = properties.GetFloatValue(PropName.DEF_WIND);
-            crit = properties.GetFloatValue(PropName.CRIT);
-            critRate = properties.GetFloatValue(PropName.CRIT_RATE);
-            dropNum = properties.GetIntValue(PropName.DROP_NUM);
-            dropList = new int[dropNum];
-            for (int i = 0; i < dropNum; i++)
-            {
-                dropList[i] = properties.GetIntValue(PropName.DROP + (i + 1) + "_id"); 
-            }
-        }
-
-        public override void Save()
+        public override void Init(params object[] args)
         {
         }
 
         public override object Clone()
         {
             return new EnemyEntity();
+        }
+
+        public override void Save()
+        {
         }
 
         public EntityType Type()
@@ -92,6 +68,11 @@ namespace Assets.Scripts.Data
         public int EntityId()
         {
             return entityId;
+        }
+
+        public int BindNum()
+        {
+            return 1;
         }
 
         public int Id()
@@ -176,16 +157,12 @@ namespace Assets.Scripts.Data
         
         public int DropNum()
         {
-            return dropNum;
+            return properties.GetIntValue(PropName.DROP_NUM);
         }
 
         public int Drop(int index)
         {
-            if (index >= 0 && index < dropList.Length)
-            {
-                return dropList[index];
-            }
-            return 0;
+            return properties.GetIntValue(PropName.DROP + (index + 1) + "_id"); 
         }
     }
 }

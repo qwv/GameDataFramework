@@ -1,7 +1,7 @@
 ﻿
 namespace Assets.Scripts.Data
 {
-    public interface IBackpackAvater : IAvater
+    public interface IPackAvater : IAvater
     {
         int Capacity();
 

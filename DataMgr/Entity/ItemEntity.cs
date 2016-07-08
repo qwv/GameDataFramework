@@ -3,7 +3,7 @@ namespace Assets.Scripts.Data
 {
     public class ItemEntity : Entity, IItemAvater
     {
-        private class PropName{
+        public class PropName{
             public const string ID = "id";
             public const string NAME = "name";
             public const string LEVEL = "level";
@@ -11,34 +11,23 @@ namespace Assets.Scripts.Data
             public const string MODEL = "model";
         }
 
-        public int id;
-        public string name;
-        public int level;
-        public int bindNum;
-        public string model;
+        public ItemEntity() { }
 
-        public override void SetProperties(EntityProperties ep)
+        public ItemEntity(ItemEntity entity)
         {
-            properties = ep;
         }
 
-        public override void Init(int entityId)
-        {
-            this.entityId = entityId;
-            id = properties.GetIntValue(PropName.ID);
-            name = properties.GetStringValue(PropName.NAME);
-            level = properties.GetIntValue(PropName.LEVEL);
-            bindNum = properties.GetIntValue(PropName.BIND_NUM);
-            model = properties.GetStringValue(PropName.MODEL);
-        }
-
-        public override void Save()
+        public override void Init(params object[] args)
         {
         }
 
         public override object Clone()
         {
-            return new ItemEntity();
+            return new ItemEntity(this);
+        }
+
+        public override void Save()
+        {
         }
 
         public EntityType Type()
@@ -53,27 +42,27 @@ namespace Assets.Scripts.Data
 
         public int Id()
         {
-            return id;
+            return properties.GetIntValue(PropName.ID);
         }
 
         public string Name()
         {
-            return name;
+            return properties.GetStringValue(PropName.NAME);
         }
 
         public int Level()
         {
-            return level;
+            return properties.GetIntValue(PropName.LEVEL);
         }
 
         public int BindNum()
         {
-            return bindNum;
+            return properties.GetIntValue(PropName.BIND_NUM);
         }
 
         public string Model()
         {
-            return model;
+            return properties.GetStringValue(PropName.MODEL);
         }
     }
 }

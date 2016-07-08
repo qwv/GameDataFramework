@@ -1,10 +1,16 @@
 ﻿
 namespace Assets.Scripts.Data
 {
-    public interface IDroppackAvater : IAvater
+    public interface IDroppackAvater : IPackAvater
     {
-        int Capacity();
+        int Id();
 
-        IAvater Cells(int id);
+        int GoldMin();
+
+        int GoldMax();
+
+        int Value();
+
+        int ItemNum();
     }
 }

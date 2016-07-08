@@ -23,6 +23,6 @@ namespace Assets.Scripts.Data
 
         public abstract Priority GetPriority();
 
-        public abstract object Execute(DataManager dataMgr);
+        public abstract object Execute();
     }
 }

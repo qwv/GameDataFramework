@@ -6,20 +6,19 @@ namespace Assets.Scripts.Data
     {
         ITEM = 1,
         GOLD = 2,
-        BACKPACK = 3,
+        PACK = 3,
         DROPPACK = 4,
         ENEMY = 5,
+        CLONE = 6,
     }
 
     public abstract class Entity : ICloneable
     {
-        protected EntityProperties properties;
+        public Properties properties;
 
         public int entityId;
 
-        public virtual void SetProperties(EntityProperties ep) { }
-
-        public abstract void Init(int entityId);
+        public abstract void Init(params object[] args);
 
         public abstract void Save();
 

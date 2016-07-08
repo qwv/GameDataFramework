@@ -10,7 +10,7 @@ namespace Assets.Scripts.Data
 
     public class DataManager : IDataManager
     {
-        private Dictionary<EntityType, EntityFactory> entityFactories;
+        private Dictionary<EntityType, Factory> entityFactories;
 
         private Dictionary<int, Entity> entities;
         private int entityIdCursor;
@@ -19,7 +19,7 @@ namespace Assets.Scripts.Data
 
         private static DataManager instance;
 
-        public static IDataManager Instance
+        public static DataManager Instance
         {
             get
             {
@@ -32,14 +32,20 @@ namespace Assets.Scripts.Data
             }
         }
 
+        public DataManager GetInstace()
+        {
+            return instance;
+        }
+
         private void Init()
         {
-            entityFactories = new Dictionary<EntityType, EntityFactory>();
-            entityFactories.Add(EntityType.ITEM, ItemEntityFactory.Instance);
-            entityFactories.Add(EntityType.GOLD, GoldEntityFactory.Instance);
-            entityFactories.Add(EntityType.BACKPACK, BackpackEntityFactory.Instance);
-            entityFactories.Add(EntityType.DROPPACK, BackpackEntityFactory.Instance);
-            entityFactories.Add(EntityType.ENEMY, EnemyEntityFactory.Instance);
+            entityFactories = new Dictionary<EntityType, Factory>();
+            entityFactories.Add(EntityType.ITEM, new StandardFactory<ItemEntity>(ItemBuilder.Instance));
+            entityFactories.Add(EntityType.GOLD, new StandardFactory<GoldEntity>());
+            entityFactories.Add(EntityType.PACK, new StandardFactory<PackEntity>());
+            entityFactories.Add(EntityType.DROPPACK, new StandardFactory<DroppackEntity>(DroppackBuilder.Instance));
+            entityFactories.Add(EntityType.ENEMY, new StandardFactory<EnemyEntity>(EnemyBuilder.Instance));
+            entityFactories.Add(EntityType.CLONE, CloneFactory.Instance);
 
             entities = new Dictionary<int, Entity>(); 
             entityIdCursor = 0;
@@ -55,7 +61,7 @@ namespace Assets.Scripts.Data
             return entityIdCursor++;
         }
 
-        private EntityFactory FindFactory(EntityType type)
+        private Factory FindFactory(EntityType type)
         {
             return entityFactories[type];
         }

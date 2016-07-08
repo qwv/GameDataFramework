@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-
+﻿
 namespace Assets.Scripts.Data
 {
-    public class DroppackEntity: Entity, IDroppackAvater
+    public class DroppackEntity: PackEntity, IDroppackAvater
     {
-        private class PropName
+        public class PropName
         {
             public const string ID = "id";
             public const string GOLD_MIN = "gold_min";
@@ -15,52 +13,16 @@ namespace Assets.Scripts.Data
             public const string ITEM = "item";
         }
 
-        private int capacity;
+        public DroppackEntity() { }
 
-        private List<Entity> cells;
-
-        public override void Init(int entityId)
+        public DroppackEntity(DroppackEntity entity) : base(entity)
         {
-            this.entityId = entityId;
-            Generate();
-        }
-
-        public override void Save()
-        {
+            this.properties = entity.properties;
         }
 
         public override object Clone()
         {
-            return new DroppackEntity();
-        }
-
-        public void Generate()
-        {
-            // Random gold.
-            int goldMin = properties.GetIntValue(PropName.GOLD_MIN);
-            int goldMax = properties.GetIntValue(PropName.GOLD_MAX);
-            int gold = Random.Range(goldMin, goldMax + 1);
-
-            // Random item.
-            List<int> itemList = new List<int>();
-            int value = properties.GetIntValue(PropName.VALUE);
-            int itemNum = properties.GetIntValue(PropName.ITEM_NUM);
-            for (int i = 0; i < itemNum; i++)
-            {
-                int itemId = properties.GetIntValue(PropName.ITEM + (i + 1) + "_id");
-                int itemValue = properties.GetIntValue(PropName.ITEM + (i + 1) + "_value");
-
-                if (Random.Range(0f, 1.0f) < itemValue / value)
-                {
-                    itemList.Add(itemId);
-                }
-            }
-
-            capacity = itemList.Count + 1;
-            cells = new List<Entity>(capacity);
-
-            CmdCreateEntity cmd1 = new CmdCreateEntity(EntityType.GOLD, 0);
-            cmd1.Execute();
+            return new DroppackEntity(this);
         }
 
         public EntityType Type()
@@ -68,19 +30,29 @@ namespace Assets.Scripts.Data
             return EntityType.DROPPACK;
         }
 
-        public int EntityId()
+        public int Id()
         {
-            return entityId;
+            return properties.GetIntValue(PropName.ID);
         }
 
-        public int Capacity()
+        public int GoldMin()
         {
-            return capacity;
+            return properties.GetIntValue(PropName.GOLD_MIN);
         }
 
-        public IAvater Cells(int id)
+        public int GoldMax()
         {
-            return (IAvater)cells[id];
+            return properties.GetIntValue(PropName.GOLD_MAX);
+        }
+
+        public int Value()
+        {
+            return properties.GetIntValue(PropName.VALUE);
+        }
+
+        public int ItemNum()
+        {
+            return properties.GetIntValue(PropName.ITEM_NUM);
         }
     }
 }

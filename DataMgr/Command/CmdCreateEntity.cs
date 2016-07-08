@@ -12,9 +12,9 @@ namespace Assets.Scripts.Data
             this.args = args;
         }
 
-        public override object Execute(DataManager dataMgr)
+        public override object Execute()
         {
-            return dataMgr.CreateEntity(type, args);
+            return DataManager.Instance.CreateEntity(type, args);
         }
 
         public override RunType GetRunType()

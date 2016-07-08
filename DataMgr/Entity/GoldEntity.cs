@@ -5,19 +5,25 @@ namespace Assets.Scripts.Data
     {
         public int gold;
 
-        public override void Init(int entityId, int gold)
+        public GoldEntity() { }
+
+        public GoldEntity(GoldEntity entity)
         {
-            this.entityId = entityId;
-            this.gold = gold;
+            this.gold = entity.gold;
         }
 
-        public override void Save()
+        public override void Init(params object[] args)
         {
+            gold = (int)args[0];
         }
 
         public override object Clone()
         {
-            return new GoldEntity();
+            return new GoldEntity(this);
+        }
+
+        public override void Save()
+        {
         }
 
         public EntityType Type()
@@ -28,6 +34,11 @@ namespace Assets.Scripts.Data
         public int EntityId()
         {
             return entityId;
+        }
+
+        public int BindNum()
+        {
+            return 1;
         }
 
         public int Gold()

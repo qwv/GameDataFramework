@@ -6,11 +6,11 @@ namespace Assets.Scripts.Data
 {
     public class DataCollection
     {
-        private Dictionary<int, EntityProperties> collection;
+        private Dictionary<int, Properties> collection;
 
         public DataCollection()
         {
-            collection = new Dictionary<int, EntityProperties>();
+            collection = new Dictionary<int, Properties>();
         }
 
         public void Init(string sourcePath)
@@ -30,12 +30,12 @@ namespace Assets.Scripts.Data
                     string value = attribute.Value;
                     data.Add(name, value);
                 }
-                collection.Add(id, new EntityProperties(data));
+                collection.Add(id, new Properties(data));
             }
             xmlDoc = null;
         }
 
-        public EntityProperties Get(int id)
+        public Properties Get(int id)
         {
             Debug.Assert(collection.ContainsKey(id), "Invaild data id.");
             return collection[id];

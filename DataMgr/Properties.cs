@@ -2,11 +2,11 @@
 
 namespace Assets.Scripts.Data
 {
-    public class EntityProperties
+    public class Properties
     {
         Dictionary<string, string> dict;
 
-        public EntityProperties(Dictionary<string, string> dict)
+        public Properties(Dictionary<string, string> dict)
         {
             this.dict = dict;
         }
