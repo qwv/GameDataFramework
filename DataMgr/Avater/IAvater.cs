@@ -7,6 +7,6 @@ namespace Assets.Scripts.Data
 
         int EntityId();
 
-        int BindNum();
+        int StackNum();
     }
 }

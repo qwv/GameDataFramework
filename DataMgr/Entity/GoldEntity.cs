@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 
 namespace Assets.Scripts.Data.Internal
 {
@@ -26,13 +27,13 @@ namespace Assets.Scripts.Data.Internal
         public override Dictionary<string, string> Serialize()
         {
             Dictionary<string, string> dict = new Dictionary<string, string>();
-
+            dict.Add("gold", gold.ToString());
             return dict;
         }
 
         public override void Deserialize(Dictionary<string, string> dict)
         {
-
+            gold = Convert.ToInt32(dict["gold"]);
         }
 
         public EntityType Type()
@@ -45,7 +46,7 @@ namespace Assets.Scripts.Data.Internal
             return entityId;
         }
 
-        public int BindNum()
+        public int StackNum()
         {
             return 1;
         }

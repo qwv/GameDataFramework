@@ -11,10 +11,12 @@ namespace Assets.Scripts.Data.Internal
 
         public abstract void Init(params object[] args);
 
+        public abstract object Clone();
+
         public abstract Dictionary<string, string> Serialize();
 
         public abstract void Deserialize(Dictionary<string, string> dict);
 
-        public abstract object Clone();
+        public virtual bool Same(Entity entity) { return false; }
     }
 }

@@ -60,13 +60,14 @@ namespace Assets.Scripts.Data.Internal
         public override Dictionary<string, string> Serialize()
         {
             Dictionary<string, string> dict = new Dictionary<string, string>();
-
+            dict.Add(PropName.ID, id);
             return dict;
         }
 
         public override void Deserialize(Dictionary<string, string> dict)
         {
-
+            int id = dict[PropName.ID];
+            EnemyBuilder.Instance.Build(this, Type(), id);
         }
 
         public EntityType Type()
@@ -79,7 +80,7 @@ namespace Assets.Scripts.Data.Internal
             return entityId;
         }
 
-        public int BindNum()
+        public int StackNum()
         {
             return 1;
         }

@@ -8,7 +8,7 @@ namespace Assets.Scripts.Data.Internal
             public const string ID = "id";
             public const string NAME = "name";
             public const string LEVEL = "level";
-            public const string BIND_NUM = "bind_num";
+            public const string STACK_NUM = "stack_num";
             public const string MODEL = "model";
         }
 
@@ -30,13 +30,14 @@ namespace Assets.Scripts.Data.Internal
         public override Dictionary<string, string> Serialize()
         {
             Dictionary<string, string> dict = new Dictionary<string, string>();
-
+            dict.Add(PropName.ID, Id());
             return dict;
         }
 
         public override void Deserialize(Dictionary<string, string> dict)
         {
-
+            int id = dict[PropName.ID];
+            ItemBuilder.Instance.Build(this, Type(), id);
         }
 
         public EntityType Type()
@@ -47,6 +48,11 @@ namespace Assets.Scripts.Data.Internal
         public int EntityId()
         {
             return entityId;
+        }
+
+        public override bool Same(Entity entity)
+        {
+            return Type() == entity.Type() && Id() == entity.Id();
         }
 
         public int Id()
@@ -64,9 +70,9 @@ namespace Assets.Scripts.Data.Internal
             return properties.GetIntValue(PropName.LEVEL);
         }
 
-        public int BindNum()
+        public int StackNum()
         {
-            return properties.GetIntValue(PropName.BIND_NUM);
+            return properties.GetIntValue(PropName.STACK_NUM);
         }
 
         public string Model()
