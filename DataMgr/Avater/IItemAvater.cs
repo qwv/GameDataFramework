@@ -9,8 +9,6 @@ namespace Assets.Scripts.Data
 
         int Level();
 
-        int BindNum();
-
         string Model();
     }
 }

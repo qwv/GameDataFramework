@@ -1,17 +1,7 @@
 ﻿using System;
 
-namespace Assets.Scripts.Data
+namespace Assets.Scripts.Data.Internal
 {
-    public enum EntityType
-    {
-        ITEM = 1,
-        GOLD = 2,
-        PACK = 3,
-        DROPPACK = 4,
-        ENEMY = 5,
-        CLONE = 6,
-    }
-
     public abstract class Entity : ICloneable
     {
         public Properties properties;

@@ -2,18 +2,17 @@
 using System.Xml;
 using UnityEngine;
 
-namespace Assets.Scripts.Data
+namespace Assets.Scripts.Data.Internal
 {
-    public interface IDataManager
-    {
-    }
-
-    public class DataManager : IDataManager
+    public class DataManager
     {
         private Dictionary<EntityType, Factory> entityFactories;
 
         private Dictionary<int, Entity> entities;
+
         private int entityIdCursor;
+
+        private Dictionary<CmdName, Creator> commandCreators;
 
         private List<Queue<Command>> commandQueues;
 
@@ -26,19 +25,14 @@ namespace Assets.Scripts.Data
                 if (instance == null)
                 {
                     instance = new DataManager();
-                    instance.Init();
                 }
                 return instance;
             }
         }
 
-        public DataManager GetInstace()
+        private DataManager()
         {
-            return instance;
-        }
-
-        private void Init()
-        {
+            // Entity
             entityFactories = new Dictionary<EntityType, Factory>();
             entityFactories.Add(EntityType.ITEM, new StandardFactory<ItemEntity>(ItemBuilder.Instance));
             entityFactories.Add(EntityType.GOLD, new StandardFactory<GoldEntity>());
@@ -50,6 +44,10 @@ namespace Assets.Scripts.Data
             entities = new Dictionary<int, Entity>(); 
             entityIdCursor = 0;
 
+            // Command
+            commandCreators = new Dictionary<CmdName, Creator>();
+            commandCreators.Add(CmdName.CREATE_ENTITY, new CommandCreator<CmdCreateEntity>());
+            commandQueues = new List<Queue<Command>>();
             for (int i = 0; i < (int)Command.Priority.COUNT; i++)
             {
                 commandQueues.Add(new Queue<Command>()); 
@@ -61,17 +59,49 @@ namespace Assets.Scripts.Data
             return entityIdCursor++;
         }
 
-        private Factory FindFactory(EntityType type)
-        {
-            return entityFactories[type];
-        }
-
         public IAvater CreateEntity(EntityType type, params object[] args)
         {
-            int entityId = GenerateEntityId(); 
-            Entity entity = FindFactory(type).Create(entityId, args);
+            int entityId = GenerateEntityId();
+            Entity entity = entityFactories[type].Create(entityId, args);
             entities.Add(entityId, entity);
             return (IAvater)entity;
+        }
+
+        public IAvater RunCommand(CmdName cmdName, params object[] args)
+        {
+            Command cmd = commandCreators[cmdName].Create(args);
+            switch (cmd.GetRunType())
+            {
+                case Command.RunType.INSTANT:
+                    return (IAvater)cmd.Execute();
+                case Command.RunType.INTERVAL:
+                    commandQueues[(int)cmd.GetPriority()].Enqueue(cmd);
+                    break;
+            }
+            Debug.Log("Run command: invalid command name.");
+            return null;
+        }
+
+        public void RunCommandQueue()
+        {
+            foreach (Queue<Command> queue in commandQueues)
+            {
+                while (queue.Count != 0)
+                {
+                    Command cmd = queue.Dequeue();
+                    cmd.Execute();
+                }
+            }
+        }
+
+        public IAvater GetEntity(int entityId)
+        {
+            if (entities.ContainsKey(entityId))
+            {
+                return (IAvater)entities[entityId];
+            }
+            Debug.Log("Get entity: invalid entity id.");
+            return null;
         }
 
         public void SaveEntities()

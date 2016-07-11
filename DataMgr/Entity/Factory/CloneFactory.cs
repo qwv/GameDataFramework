@@ -1,5 +1,5 @@
 ﻿
-namespace Assets.Scripts.Data
+namespace Assets.Scripts.Data.Internal
 {
     public class CloneFactory : Factory
     {
@@ -17,6 +17,12 @@ namespace Assets.Scripts.Data
             }
         }
 
+        /// <summary>
+        /// Create entity's clone
+        /// </summary>
+        /// <param name="entityId">entity id</param>
+        /// <param name="args">args[0]:entity need clone</param>
+        /// <returns></returns>
         public override Entity Create(int entityId, params object[] args)
         {
             Entity entity = (Entity)args[0];

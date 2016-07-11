@@ -2,18 +2,18 @@
 using System.Xml;
 using UnityEngine;
 
-namespace Assets.Scripts.Data
+namespace Assets.Scripts.Data.Internal
 {
-    public class DataCollection
+    public class Collection
     {
         private Dictionary<int, Properties> collection;
 
-        public DataCollection()
+        public Collection()
         {
             collection = new Dictionary<int, Properties>();
         }
 
-        public void Init(string sourcePath)
+        public void Load(string sourcePath)
         {
             TextAsset xmlText = Resources.Load(sourcePath) as TextAsset;
             XmlDocument xmlDoc = new XmlDocument();
@@ -37,7 +37,7 @@ namespace Assets.Scripts.Data
 
         public Properties Get(int id)
         {
-            Debug.Assert(collection.ContainsKey(id), "Invaild data id.");
+            Debug.Assert(collection.ContainsKey(id), "Collection Invaild id.");
             return collection[id];
         }
     }

@@ -1,14 +1,25 @@
 ﻿
-namespace Assets.Scripts.Data
+namespace Assets.Scripts.Data.Internal
 {
     public class CmdCreateEntity : Command
     {
         EntityType type;
         object[] args;
 
-        public CmdCreateEntity(EntityType type, params object[] args)
+        public CmdCreateEntity() { }
+
+        /// <summary>
+        /// Command create entity
+        /// </summary>
+        /// <param name="args">args[0]:entity type</param>
+        public CmdCreateEntity(params object[] args)
         {
-            this.type = type;
+            Init(args);
+        }
+
+        public override void Init(params object[] args)
+        {
+            this.type = (EntityType)args[0];
             this.args = args;
         }
 

@@ -1,9 +1,9 @@
 ﻿
-namespace Assets.Scripts.Data
+namespace Assets.Scripts.Data.Internal
 {
     public class EnemyBuilder: Builder 
     {
-        private DataCollection collection = new DataCollection();
+        private Collection collection = new Collection();
 
         private static EnemyBuilder instance;
 
@@ -13,18 +13,23 @@ namespace Assets.Scripts.Data
                 if (instance == null)
                 {
                     instance = new EnemyBuilder();
-                    instance.collection.Init(ConfigTablePath.ENEMY_SOURCE);
+                    instance.collection.Load(ConfigTablePath.ENEMY_SOURCE);
                 }
                 return instance;
             }
         }
 
+        /// <summary>
+        /// Build enemy entity
+        /// </summary>
+        /// <param name="entity">entity input</param>
+        /// <param name="args">args[0]:entity type, args[1]:enemy id</param>
         public override void Build(Entity entity, params object[] args)
         {
             EnemyEntity enemyEntity = (EnemyEntity)entity;
 
-            int index = (int)args[0];
-            Properties properties = collection.Get(index);
+            int id = (int)args[1];
+            Properties properties = collection.Get(id);
             enemyEntity.properties = properties;
             enemyEntity.id = properties.GetIntValue(EnemyEntity.PropName.ID);
             enemyEntity.name = properties.GetStringValue(EnemyEntity.PropName.NAME);

@@ -1,9 +1,9 @@
 ﻿
-namespace Assets.Scripts.Data
+namespace Assets.Scripts.Data.Internal
 {
     public class ItemBuilder: Builder 
     {
-        private DataCollection collection = new DataCollection();
+        private Collection collection = new Collection();
 
         private static ItemBuilder instance;
 
@@ -13,18 +13,23 @@ namespace Assets.Scripts.Data
                 if (instance == null)
                 {
                     instance = new ItemBuilder();
-                    instance.collection.Init(ConfigTablePath.ITEM_SOURCE);
+                    instance.collection.Load(ConfigTablePath.ITEM_SOURCE);
                 }
                 return instance;
             }
         }
 
+        /// <summary>
+        /// Build item entity
+        /// </summary>
+        /// <param name="entity">entity input</param>
+        /// <param name="args">args[0]:entity type, args[1]:item id</param>
         public override void Build(Entity entity, params object[] args)
         {
             ItemEntity itemEntity = (ItemEntity)entity;
 
-            int index = (int)args[0];
-            Properties properties = collection.Get(index);
+            int id = (int)args[1];
+            Properties properties = collection.Get(id);
             entity.properties = properties;
         }
     }

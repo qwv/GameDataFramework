@@ -1,5 +1,5 @@
 ﻿
-namespace Assets.Scripts.Data
+namespace Assets.Scripts.Data.Internal
 {
     public abstract class Command
     {
@@ -18,6 +18,8 @@ namespace Assets.Scripts.Data
             LOWEST = 4,
             COUNT = LOWEST + 1,
         }
+
+        public abstract void Init(params object[] args);
 
         public abstract RunType GetRunType();
 

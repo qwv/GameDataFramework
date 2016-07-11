@@ -1,5 +1,5 @@
 ﻿
-namespace Assets.Scripts.Data
+namespace Assets.Scripts.Data.Internal
 {
     public class EnemyEntity : Entity, IEnemyAvater
     {

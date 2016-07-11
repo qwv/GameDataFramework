@@ -1,5 +1,5 @@
 ﻿
-namespace Assets.Scripts.Data
+namespace Assets.Scripts.Data.Internal
 {
     public class StandardFactory<T> : Factory where T : Entity, new()
     {
@@ -10,6 +10,13 @@ namespace Assets.Scripts.Data
             this.builder = builder;
         }
 
+        /// <summary>
+        /// Create entity
+        /// Use builder if it's not null
+        /// </summary>
+        /// <param name="entityId">entity id</param>
+        /// <param name="args">args</param>
+        /// <returns></returns>
         public override Entity Create(int entityId, params object[] args)
         {
             T t = new T();

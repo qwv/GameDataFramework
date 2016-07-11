@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Scripts.Data
+namespace Assets.Scripts.Data.Internal
 {
     public class DroppackBuilder: Builder 
     {
-        private DataCollection collection = new DataCollection();
+        private Collection collection = new Collection();
 
         private static DroppackBuilder instance;
 
@@ -15,23 +15,28 @@ namespace Assets.Scripts.Data
                 if (instance == null)
                 {
                     instance = new DroppackBuilder();
-                    instance.collection.Init(ConfigTablePath.DROP_SOURCE);
+                    instance.collection.Load(ConfigTablePath.DROP_SOURCE);
                 }
                 return instance;
             }
         }
 
+        /// <summary>
+        /// Build drop pack entity
+        /// </summary>
+        /// <param name="entity">entity input</param>
+        /// <param name="args">args[0]:entity type, args[1]:drop id</param>
         public override void Build(Entity entity, params object[] args)
         {
             DroppackEntity packEntity = (DroppackEntity)entity;
 
-            int index = (int)args[0];
-            Properties properties = collection.Get(index);
-            // Random gold.
+            int id = (int)args[1];
+            Properties properties = collection.Get(id);
+            // Random gold
             int goldMin = properties.GetIntValue(DroppackEntity.PropName.GOLD_MIN);
             int goldMax = properties.GetIntValue(DroppackEntity.PropName.GOLD_MAX);
             int gold = Random.Range(goldMin, goldMax + 1);
-            // Random item.
+            // Random item
             List<int> itemList = new List<int>();
             int value = properties.GetIntValue(DroppackEntity.PropName.VALUE);
             int itemNum = properties.GetIntValue(DroppackEntity.PropName.ITEM_NUM);
@@ -46,6 +51,7 @@ namespace Assets.Scripts.Data
                 }
             }
 
+            // Create pack
             int capacity = itemList.Count + 1;
             entity.Init(capacity);
 

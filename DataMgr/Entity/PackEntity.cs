@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Assets.Scripts.Data
+namespace Assets.Scripts.Data.Internal
 {
     public class PackEntity: Entity, IPackAvater
     {
