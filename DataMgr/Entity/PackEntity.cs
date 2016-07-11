@@ -25,8 +25,16 @@ namespace Assets.Scripts.Data.Internal
             return new PackEntity(this);
         }
 
-        public override void Save()
+        public override Dictionary<string, string> Serialize()
         {
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+
+            return dict;
+        }
+
+        public override void Deserialize(Dictionary<string, string> dict)
+        {
+            
         }
 
         public EntityType Type()

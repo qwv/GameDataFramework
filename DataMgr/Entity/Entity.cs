@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Assets.Scripts.Data.Internal
 {
@@ -10,7 +11,9 @@ namespace Assets.Scripts.Data.Internal
 
         public abstract void Init(params object[] args);
 
-        public abstract void Save();
+        public abstract Dictionary<string, string> Serialize();
+
+        public abstract void Deserialize(Dictionary<string, string> dict);
 
         public abstract object Clone();
     }

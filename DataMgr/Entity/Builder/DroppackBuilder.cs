@@ -55,14 +55,14 @@ namespace Assets.Scripts.Data.Internal
             int capacity = itemList.Count + 1;
             entity.Init(capacity);
 
-            CmdCreateEntity cmd1 = new CmdCreateEntity(EntityType.GOLD, gold);
-            packEntity.cells.Add((GoldEntity)cmd1.Execute());
+            GoldEntity goldEntity = (GoldEntity)DataManager.Instance.CreateEntity(EntityType.GOLD, gold);
+            packEntity.cells.Add(goldEntity);
 
             for (int i = 0; i < capacity; i++)
             {
                 int itemId = itemList[i];
-                CmdCreateEntity cmd = new CmdCreateEntity(EntityType.ITEM, itemId);
-                packEntity.cells.Add((ItemEntity)cmd.Execute());
+                ItemEntity itemEntity = (ItemEntity)DataManager.Instance.CreateEntity(EntityType.ITEM, itemId);
+                packEntity.cells.Add(itemEntity);
             }
         }
     }

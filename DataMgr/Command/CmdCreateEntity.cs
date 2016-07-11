@@ -25,7 +25,7 @@ namespace Assets.Scripts.Data.Internal
 
         public override object Execute()
         {
-            return DataManager.Instance.CreateEntity(type, args);
+            return (IAvater)DataManager.Instance.CreateEntity(type, args);
         }
 
         public override RunType GetRunType()

@@ -22,13 +22,16 @@ namespace Assets.Scripts.Data.Internal
             T t = new T();
             t.entityId = entityId;
 
-            if (builder != null)
+            if (args != null)
             {
-                builder.Build(t, args);
-            }
-            else
-            {
-                t.Init(args);
+                if (builder != null)
+                {
+                    builder.Build(t, args);
+                }
+                else
+                {
+                    t.Init(args);
+                }
             }
             return t;
         }
