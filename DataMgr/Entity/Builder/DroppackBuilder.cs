@@ -25,7 +25,7 @@ namespace Assets.Scripts.Data.Internal
         /// Build drop pack entity
         /// </summary>
         /// <param name="entity">entity input</param>
-        /// <param name="args">args[0]:entity type, args[1]:drop id</param>
+        /// <param name="args">args[0]:<see cref="EntityType"/>, args[1]:drop id</param>
         public override void Build(Entity entity, params object[] args)
         {
             DroppackEntity packEntity = (DroppackEntity)entity;
@@ -56,13 +56,13 @@ namespace Assets.Scripts.Data.Internal
             entity.Init(capacity);
 
             GoldEntity goldEntity = (GoldEntity)DataManager.Instance.CreateEntity(EntityType.GOLD, gold);
-            packEntity.AddEntity(goldEntity);
+            //packEntity.AddEntity(goldEntity);
 
             for (int i = 0; i < capacity; i++)
             {
                 int itemId = itemList[i];
                 ItemEntity itemEntity = (ItemEntity)DataManager.Instance.CreateEntity(EntityType.ITEM, itemId);
-                packEntity.AddEntity(itemEntity);
+                //packEntity.AddEntity(itemEntity);
             }
         }
     }

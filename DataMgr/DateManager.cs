@@ -43,7 +43,7 @@ namespace Assets.Scripts.Data.Internal
             entityFactories.Add(EntityType.CLONE, CloneFactory.Instance);
 
             entities = new Dictionary<int, Entity>(); 
-            entityIdCursor = 0;
+            entityIdCursor = 10000;
             
             // Command
             commandCreators = new Dictionary<CmdName, Creator>();

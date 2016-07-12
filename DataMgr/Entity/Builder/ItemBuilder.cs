@@ -23,7 +23,7 @@ namespace Assets.Scripts.Data.Internal
         /// Build item entity
         /// </summary>
         /// <param name="entity">entity input</param>
-        /// <param name="args">args[0]:entity type, args[1]:item id</param>
+        /// <param name="args">args[0]:<see cref="EntityType"/>, args[1]:item id</param>
         public override void Build(Entity entity, params object[] args)
         {
             ItemEntity itemEntity = (ItemEntity)entity;

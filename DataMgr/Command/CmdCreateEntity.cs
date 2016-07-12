@@ -11,7 +11,7 @@ namespace Assets.Scripts.Data.Internal
         /// <summary>
         /// Command create entity
         /// </summary>
-        /// <param name="args">args[0]:entity type</param>
+        /// <param name="args">args[0]:<see cref="EntityType"/></param>
         public CmdCreateEntity(params object[] args)
         {
             Init(args);

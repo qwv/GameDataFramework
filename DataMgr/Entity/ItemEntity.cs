@@ -56,7 +56,7 @@ namespace Assets.Scripts.Data.Internal
 
         public override bool Same(Entity entity)
         {
-            return Type() == ((IItemAvater)entity).Type() && Id() == ((IItemAvater)entity).Id();
+            return type == entity.type && Id() == ((ItemEntity)entity).Id();
         }
 
         public int Id()
