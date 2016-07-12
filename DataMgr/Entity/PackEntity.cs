@@ -4,7 +4,7 @@ namespace Assets.Scripts.Data.Internal
 {
     public class PackEntity: Entity, IPackAvater
     {
-        protected class Cell
+        public class Cell
         {
             List<Entity> stack;
 
@@ -33,7 +33,7 @@ namespace Assets.Scripts.Data.Internal
 
             public void Remove()
             {
-                stack.Remove(0);
+                stack.RemoveAt(0);
             }
 
             public Entity Get()
@@ -52,7 +52,10 @@ namespace Assets.Scripts.Data.Internal
 
         public int count;
 
-        public PackEntity() { }
+        public PackEntity()
+        {
+            type = EntityType.PACK;
+        }
 
         public PackEntity(PackEntity entity)
         {
@@ -91,17 +94,12 @@ namespace Assets.Scripts.Data.Internal
 
         public EntityType Type()
         {
-            return EntityType.PACK;
+            return type;
         }
 
         public int EntityId()
         {
             return entityId;
-        }
-
-        public int StackNum()
-        {
-            return 1;
         }
 
         public int Capacity()
@@ -119,7 +117,7 @@ namespace Assets.Scripts.Data.Internal
             return Capacity() == Count();
         }
 
-        public IAvater Cell(int index)
+        public IAvater CellContent(int index)
         {
             return (IAvater)cells[index].Get();
         }
@@ -138,12 +136,12 @@ namespace Assets.Scripts.Data.Internal
 
         public bool Merge(int index1, int index2)
         {
-
+            return false;
         }
 
-        public bool Add(Entity entity)
+        public bool AddEntity(Entity entity)
         {
-
+            return false;
         }
     }
 }

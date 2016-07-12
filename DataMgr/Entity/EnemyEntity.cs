@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 
 namespace Assets.Scripts.Data.Internal
 {
@@ -42,7 +43,10 @@ namespace Assets.Scripts.Data.Internal
         public float crit;
         public float critRate;
 
-        public EnemyEntity() { }
+        public EnemyEntity() 
+        {
+            type = EntityType.ENEMY;
+        }
 
         public EnemyEntity(EnemyEntity entity)
         {
@@ -60,29 +64,24 @@ namespace Assets.Scripts.Data.Internal
         public override Dictionary<string, string> Serialize()
         {
             Dictionary<string, string> dict = new Dictionary<string, string>();
-            dict.Add(PropName.ID, id);
+            dict.Add(PropName.ID, id.ToString());
             return dict;
         }
 
         public override void Deserialize(Dictionary<string, string> dict)
         {
-            int id = dict[PropName.ID];
+            int id = Convert.ToInt32(dict[PropName.ID]);
             EnemyBuilder.Instance.Build(this, Type(), id);
         }
 
         public EntityType Type()
         {
-            return EntityType.ENEMY;
+            return type;
         }
 
         public int EntityId()
         {
             return entityId;
-        }
-
-        public int StackNum()
-        {
-            return 1;
         }
 
         public int Id()

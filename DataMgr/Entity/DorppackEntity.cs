@@ -13,7 +13,10 @@ namespace Assets.Scripts.Data.Internal
             public const string ITEM = "item";
         }
 
-        public DroppackEntity() { }
+        public DroppackEntity() 
+        {
+            type = EntityType.DROPPACK;
+        }
 
         public DroppackEntity(DroppackEntity entity) : base(entity)
         {
@@ -27,7 +30,7 @@ namespace Assets.Scripts.Data.Internal
 
         public EntityType Type()
         {
-            return EntityType.DROPPACK;
+            return type;
         }
 
         public int Id()

@@ -6,7 +6,5 @@ namespace Assets.Scripts.Data
         EntityType Type();
 
         int EntityId();
-
-        int StackNum();
     }
 }

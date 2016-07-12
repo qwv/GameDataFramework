@@ -9,12 +9,12 @@ namespace Assets.Scripts.Data
 
         bool Full();
 
-        IAvater Cell(int index);
+        IAvater CellContent(int index);
 
         int CellCount(int index);
 
-        void Swap(int index1, int index2);
+        //void Swap(int index1, int index2);
 
-        void Merge(int index1, int index2);
+        //void Merge(int index1, int index2);
     }
 }

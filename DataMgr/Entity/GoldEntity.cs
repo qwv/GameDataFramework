@@ -7,7 +7,10 @@ namespace Assets.Scripts.Data.Internal
     {
         public int gold;
 
-        public GoldEntity() { }
+        public GoldEntity() 
+        {
+            type = EntityType.GOLD;
+        }
 
         public GoldEntity(GoldEntity entity)
         {
@@ -38,17 +41,12 @@ namespace Assets.Scripts.Data.Internal
 
         public EntityType Type()
         {
-            return EntityType.GOLD;
+            return type;
         }
 
         public int EntityId()
         {
             return entityId;
-        }
-
-        public int StackNum()
-        {
-            return 1;
         }
 
         public int Gold()

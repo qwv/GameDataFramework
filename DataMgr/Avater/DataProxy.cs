@@ -18,7 +18,7 @@ namespace Assets.Scripts.Data
         CREATE_ENTITY,
     }
 
-    public static class DataInterface
+    public static class DataProxy
     {
         public static void Init()
         {
@@ -44,32 +44,32 @@ namespace Assets.Scripts.Data
 
         public static IAvater GetEntity(string key)
         {
-            return (IAvater)DataManager.Instance.GetEntity(key);
+            return (IAvater)ArchiveManager.Instance.GetEntity(key);
         }
 
         public static bool StoreEntity(string key, IAvater avater)
         {
-            return DataManager.Instance.StoreEntity(key, avater);
+            return ArchiveManager.Instance.StoreEntity(key, avater);
         }
 
         public static void CreateArchive()
         {
-            DataManager.Instance.CreateArchive();
+            ArchiveManager.Instance.CreateArchive();
         }
 
         public static bool HaveArchive(string name)
         {
-            return DataManager.Instance.HaveArchive(name);
+            return ArchiveManager.Instance.HaveArchive(name);
         }
 
         public static bool ReadArchive(string name)
         {
-            return DataManager.Instance.ReadArchive(name);
+            return ArchiveManager.Instance.ReadArchive(name);
         }
 
         public static bool WriteArchive(string name)
         {
-            return DataManager.Instance.WriteArchive(name);
+            return ArchiveManager.Instance.WriteArchive(name);
         }
     }
 }
