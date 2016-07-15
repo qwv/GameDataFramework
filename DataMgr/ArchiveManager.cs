@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Xml;
-using System;
 using UnityEngine;
 
 namespace Assets.Scripts.Data.Internal
@@ -69,40 +67,37 @@ namespace Assets.Scripts.Data.Internal
             {
                 entityStore.Clear();
 
-                Dictionary<string, Dictionary<string, string>> dict = new Dictionary<string,Dictionary<string,string>>();
-                dict = DataSave.GetValue<Dictionary<string, Dictionary<string, string>>>(name);
+                Dictionary<string, object> serializeStore = new Dictionary<string, object>();
+                serializeStore = DataSave.GetValue<Dictionary<string, object>>(name);
 
-                foreach (KeyValuePair<string, string> kv in dict[name + "__vr__archive__"])
+                foreach (KeyValuePair<string, object> kv in serializeStore)
                 {
-                    EntityType type = (EntityType)Enum.Parse(typeof(EntityType), kv.Value);
-                    Entity entity = (Entity)DataManager.Instance.CreateEntity(type);
-                    entity.Deserialize(dict[kv.Key]);
+                    Entity entity = DataManager.Instance.CreateEntity(EntityType.CLONE, kv.Value);
                     entityStore.Add(kv.Key, entity.entityId);
                 }
+                Debug.Log("Archive " + name + "read success.");
                 return true;
             }
-            Debug.Log("Acchive " + name + "is not exist.");
+            Debug.Log("Archive " + name + "is not exist.");
             return false;
         }
 
         public bool WriteArchive(string name)
         {
-            Dictionary<string, Dictionary<string, string>> dict = new Dictionary<string,Dictionary<string,string>>();
-            Dictionary<string, string> serializeStore = new Dictionary<string, string>(); 
+            Dictionary<string, object> serializeStore = new Dictionary<string, object>(); 
 
             foreach (KeyValuePair<string, int> kv in entityStore)
             {
                 Entity entity = DataManager.Instance.GetEntity(kv.Value);
                 if (entity != null)
                 {
-                    dict.Add(kv.Key, entity.Serialize());
-                    serializeStore.Add(kv.Key, entity.type.ToString());
+                    serializeStore.Add(kv.Key, entity);
                 }
             }
 
-            dict.Add(name + "__vr__archive__", serializeStore);
-            DataSave.SetValue(name, dict);
+            DataSave.SetValue(name, serializeStore);
             DataSave.ForceWrite();
+            Debug.Log("Archive " + name + "write success.");
             return true;
         }
     }

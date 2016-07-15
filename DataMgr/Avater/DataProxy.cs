@@ -5,12 +5,15 @@ namespace Assets.Scripts.Data
 {
     public enum EntityType
     {
-        ITEM,
-        GOLD,
         CELL,
         PACK,
         DROPPACK,
+        GOLD,
+        ITEM,
+        EQUIPMENT,
+        PLAYER,
         ENEMY,
+        SKILL,
         CLONE,
     }
 

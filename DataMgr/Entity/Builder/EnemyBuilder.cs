@@ -3,8 +3,6 @@ namespace Assets.Scripts.Data.Internal
 {
     public class EnemyBuilder: Builder 
     {
-        private Collection collection = new Collection();
-
         private static EnemyBuilder instance;
 
         public static EnemyBuilder Instance
@@ -13,7 +11,6 @@ namespace Assets.Scripts.Data.Internal
                 if (instance == null)
                 {
                     instance = new EnemyBuilder();
-                    instance.collection.Load(ConfigTablePath.ENEMY_SOURCE);
                 }
                 return instance;
             }
@@ -29,24 +26,9 @@ namespace Assets.Scripts.Data.Internal
             EnemyEntity enemyEntity = (EnemyEntity)entity;
 
             int id = (int)args[1];
-            Properties properties = collection.Get(id);
+            Properties properties = DBProxy.Find(Table.ENEMY, "id", id.ToString());
             enemyEntity.properties = properties;
-            enemyEntity.id = properties.GetIntValue(EnemyEntity.PropName.ID);
-            enemyEntity.name = properties.GetStringValue(EnemyEntity.PropName.NAME);
-            enemyEntity.level = properties.GetIntValue(EnemyEntity.PropName.LEVEL);
-            enemyEntity.hp = properties.GetFloatValue(EnemyEntity.PropName.HP);
-            enemyEntity.atk = properties.GetFloatValue(EnemyEntity.PropName.ATK);
-            enemyEntity.atkRay = properties.GetFloatValue(EnemyEntity.PropName.ATK_RAY);
-            enemyEntity.atkIce = properties.GetFloatValue(EnemyEntity.PropName.ATK_ICE);
-            enemyEntity.atkFire = properties.GetFloatValue(EnemyEntity.PropName.ATK_FIRE);
-            enemyEntity.atkWind = properties.GetFloatValue(EnemyEntity.PropName.ATK_WIND);
-            enemyEntity.def = properties.GetFloatValue(EnemyEntity.PropName.DEF);
-            enemyEntity.defRay = properties.GetFloatValue(EnemyEntity.PropName.DEF_RAY);
-            enemyEntity.defIce = properties.GetFloatValue(EnemyEntity.PropName.DEF_ICE);
-            enemyEntity.defFire = properties.GetFloatValue(EnemyEntity.PropName.DEF_FIRE);
-            enemyEntity.defWind = properties.GetFloatValue(EnemyEntity.PropName.DEF_WIND);
-            enemyEntity.crit = properties.GetFloatValue(EnemyEntity.PropName.CRIT);
-            enemyEntity.critRate = properties.GetFloatValue(EnemyEntity.PropName.CRIT_RATE);
+            CalPropsBuilder.Instance.Build(enemyEntity);
         }
     }
 }

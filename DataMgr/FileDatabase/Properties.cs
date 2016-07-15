@@ -6,9 +6,14 @@ namespace Assets.Scripts.Data.Internal
     {
         Dictionary<string, string> dict;
 
-        public Properties(Dictionary<string, string> dict)
+        public Properties()
         {
-            this.dict = dict;
+            dict = new Dictionary<string, string>();
+        }
+
+        public void Add(string key, string value)
+        {
+            dict.Add(key, value);
         }
 
         public int GetIntValue(string key)

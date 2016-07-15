@@ -5,8 +5,6 @@ namespace Assets.Scripts.Data.Internal
 {
     public class DroppackBuilder: Builder 
     {
-        private Collection collection = new Collection();
-
         private static DroppackBuilder instance;
 
         public static DroppackBuilder Instance
@@ -15,7 +13,6 @@ namespace Assets.Scripts.Data.Internal
                 if (instance == null)
                 {
                     instance = new DroppackBuilder();
-                    instance.collection.Load(ConfigTablePath.DROP_SOURCE);
                 }
                 return instance;
             }
@@ -31,7 +28,7 @@ namespace Assets.Scripts.Data.Internal
             DroppackEntity packEntity = (DroppackEntity)entity;
 
             int id = (int)args[1];
-            Properties properties = collection.Get(id);
+            Properties properties = DBProxy.Find(Table.DROP, "id", id.ToString());
             // Random gold
             int goldMin = properties.GetIntValue(DroppackEntity.PropName.GOLD_MIN);
             int goldMax = properties.GetIntValue(DroppackEntity.PropName.GOLD_MAX);

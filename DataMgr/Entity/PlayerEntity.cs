@@ -1,25 +1,24 @@
-﻿using System.Collections.Generic;
-using System;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Assets.Scripts.Data.Internal
 {
-    public class ItemEntity : CalPropsEntity, IItemAvater
+    public class PlayerEntity : CalPropsEntity, IPlayerAvater
     {
         public new class PropName : CalPropsEntity.PropName
         {
             public const string ID = "id";
-            public const string NAME = "name";
             public const string LEVEL = "level";
-            public const string STACK_NUM = "stack_num";
-            public const string MODEL = "model";
+            public const string EXP = "exp";
         }
 
-        public ItemEntity()
+        public PlayerEntity()
         {
-            type = EntityType.ITEM;
+            type = EntityType.PLAYER;
         }
 
-        public ItemEntity(ItemEntity entity)
+        public PlayerEntity(PlayerEntity entity)
         {
         }
 
@@ -29,7 +28,7 @@ namespace Assets.Scripts.Data.Internal
 
         public override object Clone()
         {
-            return new ItemEntity(this);
+            return new PlayerEntity();
         }
 
         public override Dictionary<string, string> Serialize()
@@ -42,7 +41,7 @@ namespace Assets.Scripts.Data.Internal
         public override void Deserialize(Dictionary<string, string> dict)
         {
             int id = Convert.ToInt32(dict[PropName.ID]);
-            ItemBuilder.Instance.Build(this, Type(), id);
+            EnemyBuilder.Instance.Build(this, Type(), id);
         }
 
         public EntityType Type()
@@ -55,19 +54,9 @@ namespace Assets.Scripts.Data.Internal
             return entityId;
         }
 
-        public override bool Same(Entity entity)
-        {
-            return type == entity.type && Id() == ((ItemEntity)entity).Id();
-        }
-
         public int Id()
         {
             return properties.GetIntValue(PropName.ID);
-        }
-
-        public string Name()
-        {
-            return properties.GetStringValue(PropName.NAME);
         }
 
         public int Level()
@@ -75,14 +64,9 @@ namespace Assets.Scripts.Data.Internal
             return properties.GetIntValue(PropName.LEVEL);
         }
 
-        public override int StackNum()
+        public int Exp()
         {
-            return properties.GetIntValue(PropName.STACK_NUM);
-        }
-
-        public string Model()
-        {
-            return properties.GetStringValue(PropName.MODEL);
+            return properties.GetIntValue(PropName.EXP);
         }
     }
 }

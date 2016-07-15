@@ -1,34 +1,33 @@
 ﻿
 namespace Assets.Scripts.Data.Internal
 {
-    public class ItemBuilder: Builder 
+    public class SkillBuilder: Builder 
     {
-        private static ItemBuilder instance;
+        private static SkillBuilder instance;
 
-        public static ItemBuilder Instance
+        public static SkillBuilder Instance
         {
             get { 
                 if (instance == null)
                 {
-                    instance = new ItemBuilder();
+                    instance = new SkillBuilder();
                 }
                 return instance;
             }
         }
 
         /// <summary>
-        /// Build item entity
+        /// Build skill entity
         /// </summary>
         /// <param name="entity">entity input</param>
         /// <param name="args">args[0]:<see cref="EntityType"/>, args[1]:item id</param>
         public override void Build(Entity entity, params object[] args)
         {
-            ItemEntity itemEntity = (ItemEntity)entity;
+            SkillEntity skillEntity = (SkillEntity)entity;
 
             int id = (int)args[1];
-            Properties properties = DBProxy.Find(Table.ITEM, "id", id.ToString());
-            itemEntity.properties = properties;
-            CalPropsBuilder.Instance.Build(itemEntity);
+            Properties properties = DBProxy.Find(Table.SKILL, "id", id.ToString());
+            skillEntity.properties = properties;
         }
     }
 }

@@ -28,7 +28,7 @@ namespace Assets.Scripts.Data.Internal
             return new DroppackEntity(this);
         }
 
-        public EntityType Type()
+        public new EntityType Type()
         {
             return type;
         }

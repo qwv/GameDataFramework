@@ -1,7 +1,7 @@
 ﻿
 namespace Assets.Scripts.Data
 {
-    public interface IItemAvater : IAvater
+    public interface IItemAvater : IAvater, ICalPropsAvater
     {
         int Id();
 
