@@ -10,6 +10,8 @@ namespace Assets.Scripts.Data.Internal
 
         public List<CellEntity> cells;
 
+        public Dictionary<string, Entity> index;
+
         public PackEntity()
         {
             type = EntityType.PACK;
@@ -75,6 +77,11 @@ namespace Assets.Scripts.Data.Internal
             return count == capacity;
         }
 
+        public bool Empty()
+        {
+            return count == 0;
+        }
+
         public CellEntity Cell(int index)
         {
             if (index >= 0 && index < capacity)
@@ -84,35 +91,63 @@ namespace Assets.Scripts.Data.Internal
             return null;
         }
 
-        public void CellSwap(int index1, int index2)
-        {
-            CellEntity temp = cells[index1];
-            cells[index1] = cells[index2];
-            cells[index2] = temp;
-        }
-
-        public bool CellMerge(int index1, int index2)
-        {
-            return false;
-        }
-
-        public bool CellSplit(int index, int num)
-        {
-            return false;
-        }
-
         public bool PutInto(Entity entity)
         {
+            if (entity.type == EntityType.Cell)
+            {
+                return PutIntoBlank(entity);
+            }
+            else
+            {
+                foreach (CellEntity cell in cells)
+                {
+                    if (cell.Add(entity))
+                    {
+                        return true;
+                    }
+                }
+            }
             return false;
         }
 
-        public void TakeOut()
+        public bool PutIntoBlank(Entity entity)
         {
-
+            CellEntity cell = FindBlank();
+            if (cell != null)
+            {
+                if (entity.type == EntityType.Cell)
+                {
+                    return CellEntity.Merge(cell, (CellEntity)entity);
+                }
+                else
+                {
+                    return cell.Add(entity)
+                }
+            }
+            return false;
         }
 
-        public Entity Find()
+        public CellEntity Find(Entity entity)
         {
+            foreach (CellEntity cell in cells)
+            {
+                if (cell.Count() > 0 && cell.Get().Same(entity))
+                {
+                    return cell;
+                }
+            }
+            return null;
+        }
+
+        public CellEntity FindBlank()
+        {
+            foreach (CellEntity cell in cells)
+            {
+                if (cell.Count() == 0)
+                {
+                    return cell;
+                }
+            }
             return null;
         }
     }

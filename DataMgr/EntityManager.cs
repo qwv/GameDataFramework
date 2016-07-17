@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Data.Internal
 {
-    public class DataManager
+    public class EntityManager
     {
         private Dictionary<EntityType, Factory> entityFactories;
 
@@ -11,25 +11,21 @@ namespace Assets.Scripts.Data.Internal
 
         private int entityIdCursor;
 
-        private Dictionary<CmdName, Creator> commandCreators;
+        private static EntityManager instance;
 
-        private List<Queue<Command>> commandQueues;
-
-        private static DataManager instance;
-
-        public static DataManager Instance
+        public static EntityManager Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new DataManager();
+                    instance = new EntityManager();
                 }
                 return instance;
             }
         }
 
-        private DataManager()
+        private EntityManager()
         {
             // Entity
             entityFactories = new Dictionary<EntityType, Factory>();
@@ -45,15 +41,6 @@ namespace Assets.Scripts.Data.Internal
 
             entities = new Dictionary<int, Entity>(); 
             entityIdCursor = 100000;
-            
-            // Command
-            commandCreators = new Dictionary<CmdName, Creator>();
-            commandCreators.Add(CmdName.CREATE_ENTITY, new CommandCreator<CmdCreateEntity>());
-            commandQueues = new List<Queue<Command>>();
-            for (int i = 0; i < (int)Command.Priority.COUNT; i++)
-            {
-                commandQueues.Add(new Queue<Command>()); 
-            }
         }
 
         private int GenerateEntityId()
@@ -77,33 +64,6 @@ namespace Assets.Scripts.Data.Internal
             }
             Debug.Log("Get entity: invalid entity id.");
             return null;
-        }
-
-        public object RunCommand(CmdName cmdName, params object[] args)
-        {
-            Command cmd = commandCreators[cmdName].Create(args);
-            switch (cmd.GetRunType())
-            {
-                case Command.RunType.INSTANT:
-                    return cmd.Execute();
-                case Command.RunType.INTERVAL:
-                    commandQueues[(int)cmd.GetPriority()].Enqueue(cmd);
-                    break;
-            }
-            Debug.Log("Run command: invalid command name.");
-            return null;
-        }
-
-        public void RunCommandQueue()
-        {
-            foreach (Queue<Command> queue in commandQueues)
-            {
-                while (queue.Count != 0)
-                {
-                    Command cmd = queue.Dequeue();
-                    cmd.Execute();
-                }
-            }
         }
     }
 }

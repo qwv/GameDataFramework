@@ -1,12 +1,12 @@
 ﻿
 namespace Assets.Scripts.Data.Internal
 {
-    public class CmdCreateEntity : Command
+    public class CmdSwapCell : Command
     {
-        private EntityType type;
-        private object[] args;
+        CellEntity cell1;
+        CellEntity cell2;
 
-        public CmdCreateEntity() { }
+        public CmdSwapCell() { }
 
         /// <summary>
         /// Command verify args
@@ -19,13 +19,13 @@ namespace Assets.Scripts.Data.Internal
 
         public override void Init(params object[] args)
         {
-            this.type = (EntityType)args[0];
-            this.args = args;
+            cell1 = (CellEntity)args[0];
+            cell2 = (CellEntity)args[1];
         }
 
         public override object Execute()
         {
-            return DataManager.Instance.CreateEntity(type, args);
+            return CellEntity.SwapCell(cell1, cell2);
         }
 
         public override RunType GetRunType()

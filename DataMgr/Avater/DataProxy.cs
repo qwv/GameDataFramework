@@ -39,7 +39,7 @@ namespace Assets.Scripts.Data
         /// </summary>
         public static void Update()
         {
-            DataManager.Instance.RunCommandQueue();
+            CommandManager.Instance.RunCommandQueue();
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Assets.Scripts.Data
         /// <returns></returns>
         public static IAvater RunCommand(CmdName cmdName, params object[] args)
         {
-            return (IAvater)DataManager.Instance.RunCommand(cmdName, args);
+            return (IAvater)CommandManager.Instance.RunCommand(cmdName, args);
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Assets.Scripts.Data
         /// <returns></returns>
         public static IAvater GetEntity(int entityId)
         {
-            return (IAvater)DataManager.Instance.GetEntity(entityId);
+            return (IAvater)EntityManager.Instance.GetEntity(entityId);
         }
 
         /// <summary>

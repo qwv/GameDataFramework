@@ -19,6 +19,10 @@ namespace Assets.Scripts.Data.Internal
             COUNT = LOWEST + 1,
         }
 
+        public string content;
+
+        public abstract void Verify(params object[] args);
+
         public abstract void Init(params object[] args);
 
         public abstract RunType GetRunType();

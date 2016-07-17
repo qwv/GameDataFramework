@@ -50,16 +50,16 @@ namespace Assets.Scripts.Data.Internal
 
             // Create pack
             int capacity = itemList.Count + 1;
-            entity.Init(capacity);
+            packEntity.Init(capacity);
 
             GoldEntity goldEntity = (GoldEntity)DataManager.Instance.CreateEntity(EntityType.GOLD, gold);
-            //packEntity.AddEntity(goldEntity);
+            packEntity.PutInto(goldEntity);
 
             for (int i = 0; i < capacity; i++)
             {
                 int itemId = itemList[i];
                 ItemEntity itemEntity = (ItemEntity)DataManager.Instance.CreateEntity(EntityType.ITEM, itemId);
-                //packEntity.AddEntity(itemEntity);
+                packEntity.PutInto(itemEntity);
             }
         }
     }

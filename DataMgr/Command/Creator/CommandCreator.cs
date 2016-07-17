@@ -11,8 +11,12 @@ namespace Assets.Scripts.Data.Internal
         public override Command Create(params object[] args)
         {
             T t = new T();
-            t.Init(args);
-            return t;
+            if (t.Verify(args))
+            {
+                t.Init(args);
+                return t;
+            }
+            return null;
         }
     }
 }

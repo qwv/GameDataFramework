@@ -1,12 +1,13 @@
 ﻿
 namespace Assets.Scripts.Data.Internal
 {
-    public class CmdCreateEntity : Command
+    public class CmdSplitCell : Command
     {
-        private EntityType type;
-        private object[] args;
+        PackEntity pack
+        CellEntity cell;
+        int num;
 
-        public CmdCreateEntity() { }
+        public CmdSplitCell() { }
 
         /// <summary>
         /// Command verify args
@@ -19,13 +20,14 @@ namespace Assets.Scripts.Data.Internal
 
         public override void Init(params object[] args)
         {
-            this.type = (EntityType)args[0];
-            this.args = args;
+            pack = (PackEntity)args[0]
+            cell = (CellEntity)args[1];
+            num = (int)args[2];
         }
 
         public override object Execute()
         {
-            return DataManager.Instance.CreateEntity(type, args);
+            return CellEntity.SplitCell(pack, cell, num);
         }
 
         public override RunType GetRunType()
