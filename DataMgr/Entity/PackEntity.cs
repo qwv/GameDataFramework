@@ -93,7 +93,7 @@ namespace Assets.Scripts.Data.Internal
 
         public bool PutInto(Entity entity)
         {
-            if (entity.type == EntityType.Cell)
+            if (entity.type == EntityType.CELL)
             {
                 return PutIntoBlank(entity);
             }
@@ -115,13 +115,13 @@ namespace Assets.Scripts.Data.Internal
             CellEntity cell = FindBlank();
             if (cell != null)
             {
-                if (entity.type == EntityType.Cell)
+                if (entity.type == EntityType.CELL)
                 {
-                    return CellEntity.Merge(cell, (CellEntity)entity);
+                    return CellEntity.MergeCell(cell, (CellEntity)entity);
                 }
                 else
                 {
-                    return cell.Add(entity)
+                    return cell.Add(entity);
                 }
             }
             return false;

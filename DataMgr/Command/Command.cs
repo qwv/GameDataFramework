@@ -21,7 +21,7 @@ namespace Assets.Scripts.Data.Internal
 
         public string content;
 
-        public abstract void Verify(params object[] args);
+        public abstract bool Verify(params object[] args);
 
         public abstract void Init(params object[] args);
 

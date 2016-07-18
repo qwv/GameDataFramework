@@ -3,7 +3,7 @@ namespace Assets.Scripts.Data.Internal
 {
     public class CmdSplitCell : Command
     {
-        PackEntity pack
+        PackEntity pack;
         CellEntity cell;
         int num;
 
@@ -15,12 +15,12 @@ namespace Assets.Scripts.Data.Internal
         /// <param name="args">args[0]:<see cref="EntityType"/></param>
         public override bool Verify(params object[] args)
         {
-
+            return true;
         }
 
         public override void Init(params object[] args)
         {
-            pack = (PackEntity)args[0]
+            pack = (PackEntity)args[0];
             cell = (CellEntity)args[1];
             num = (int)args[2];
         }

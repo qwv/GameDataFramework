@@ -22,9 +22,9 @@ namespace Assets.Scripts.Data.Internal
 
         public Properties Find(string fieldName, string condition)
         {
-            Debug.Assert(primaryKey != fieldName, "DB Error: Invaild field name.");
+            Debug.Assert(primaryKey == fieldName, "DB Error: Invaild field name.");
             int key = Convert.ToInt32(condition);
-            Debug.Assert(!collection.ContainsKey(key), "DB Error: Invaild key.");
+            Debug.Assert(collection.ContainsKey(key), "DB Error: Invaild key.");
             return collection[key];
         }
     }

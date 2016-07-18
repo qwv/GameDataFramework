@@ -52,13 +52,13 @@ namespace Assets.Scripts.Data.Internal
             int capacity = itemList.Count + 1;
             packEntity.Init(capacity);
 
-            GoldEntity goldEntity = (GoldEntity)DataManager.Instance.CreateEntity(EntityType.GOLD, gold);
+            GoldEntity goldEntity = (GoldEntity)EntityManager.Instance.CreateEntity(EntityType.GOLD, gold);
             packEntity.PutInto(goldEntity);
 
             for (int i = 0; i < capacity; i++)
             {
                 int itemId = itemList[i];
-                ItemEntity itemEntity = (ItemEntity)DataManager.Instance.CreateEntity(EntityType.ITEM, itemId);
+                ItemEntity itemEntity = (ItemEntity)EntityManager.Instance.CreateEntity(EntityType.ITEM, itemId);
                 packEntity.PutInto(itemEntity);
             }
         }

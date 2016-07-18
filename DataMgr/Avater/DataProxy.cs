@@ -31,7 +31,7 @@ namespace Assets.Scripts.Data
         {
             Debug.Log("Data interface init.");
             // Create data manager instance
-            DataManager.Instance.ToString();
+            EntityManager.Instance.ToString();
         }
 
         /// <summary>

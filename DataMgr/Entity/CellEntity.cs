@@ -96,8 +96,10 @@ namespace Assets.Scripts.Data.Internal
             return true;
         }
 
-        public static bool MergeCell(CellEntity cell1, CellEntity cell2, int num = cell2.Count())
+        public static bool MergeCell(CellEntity cell1, CellEntity cell2, int num = 10000)
         {
+            num = num < cell2.Count() ? num : cell2.Count();
+
             for (int i = 0; i < num; i++)
             {
                 if (cell1.Add(cell2.Get()))

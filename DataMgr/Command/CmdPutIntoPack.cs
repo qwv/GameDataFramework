@@ -18,7 +18,7 @@ namespace Assets.Scripts.Data.Internal
             IAvater pack = (IAvater)args[0];
             if (pack.Type() != EntityType.PACK)
             {   
-                errorMessage = "args 0 is not a pack avater";
+                //errorMessage = "args 0 is not a pack avater";
                 return false;
             }
             return true;

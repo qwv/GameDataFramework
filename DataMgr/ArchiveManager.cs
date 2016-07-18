@@ -31,7 +31,7 @@ namespace Assets.Scripts.Data.Internal
         {
             if (entityStore.ContainsKey(key))
             {
-                return DataManager.Instance.GetEntity(entityStore[key]);
+                return EntityManager.Instance.GetEntity(entityStore[key]);
             }
             Debug.Log("Get entity: invalid entity key.");
             return null;
@@ -72,7 +72,7 @@ namespace Assets.Scripts.Data.Internal
 
                 foreach (KeyValuePair<string, object> kv in serializeStore)
                 {
-                    Entity entity = DataManager.Instance.CreateEntity(EntityType.CLONE, kv.Value);
+                    Entity entity = EntityManager.Instance.CreateEntity(EntityType.CLONE, kv.Value);
                     entityStore.Add(kv.Key, entity.entityId);
                 }
                 Debug.Log("Archive " + name + "read success.");
@@ -88,7 +88,7 @@ namespace Assets.Scripts.Data.Internal
 
             foreach (KeyValuePair<string, int> kv in entityStore)
             {
-                Entity entity = DataManager.Instance.GetEntity(kv.Value);
+                Entity entity = EntityManager.Instance.GetEntity(kv.Value);
                 if (entity != null)
                 {
                     serializeStore.Add(kv.Key, entity);
