@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 
 namespace Assets.Scripts.Data.Internal
 {
@@ -63,7 +62,7 @@ namespace Assets.Scripts.Data.Internal
             {
                 return entities[entityId];
             }
-            Debug.Log("Get entity: invalid entity id.");
+            Logger.Log("Get entity: invalid entity id.");
             return null;
         }
     }

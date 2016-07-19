@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System;
-using UnityEngine;
 
 namespace Assets.Scripts.Data.Internal
 {
@@ -22,9 +21,9 @@ namespace Assets.Scripts.Data.Internal
 
         public Properties Find(string fieldName, string condition)
         {
-            Debug.Assert(primaryKey == fieldName, "DB Error: Invaild field name.");
+            Logger.Assert(primaryKey != fieldName, "DB Error: Invaild field name.");
             int key = Convert.ToInt32(condition);
-            Debug.Assert(collection.ContainsKey(key), "DB Error: Invaild key.");
+            Logger.Assert(!collection.ContainsKey(key), "DB Error: Invaild key.");
             return collection[key];
         }
     }

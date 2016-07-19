@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using Assets.Scripts.Data.Internal;
+﻿using Assets.Scripts.Data.Internal;
 
 namespace Assets.Scripts.Data
 {
@@ -30,7 +29,7 @@ namespace Assets.Scripts.Data
         /// </summary>
         public static void Init()
         {
-            Debug.Log("Data interface init.");
+            Logger.Log("Data interface init.");
             // Create data manager instance
             EntityManager.Instance.ToString();
         }

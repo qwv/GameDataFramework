@@ -66,8 +66,7 @@ namespace Assets.Scripts.Data.Internal
 
         private Entity DeSerializePackEntity()
         {
-            Dictionary<string, string> dict = new Dictionary<string, string>();
-            dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonDict);
+            Dictionary<string, string> dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonDict);
 
             PackEntity entity = new PackEntity();
             entity.capacity = Convert.ToInt32(dict["capacity"]);
@@ -93,9 +92,8 @@ namespace Assets.Scripts.Data.Internal
 
         private Entity DeSerializeCellEntity()
         {
-            Dictionary<string, string> dict = new Dictionary<string, string>();
-            dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonDict);
-            
+            Dictionary<string, string> dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonDict);
+
             CellEntity entity = new CellEntity();
             entity.stack = Convert.ToInt32(dict["stack"]);
             if (entity.stack > 0)
@@ -144,7 +142,7 @@ namespace Assets.Scripts.Data.Internal
             {
                 return EntityManager.Instance.GetEntity(entityStore[key]);
             }
-            Debug.Log("Get entity: invalid entity key.");
+            Logger.Log("Get entity: invalid entity key.");
             return null;
         }
 
@@ -152,7 +150,7 @@ namespace Assets.Scripts.Data.Internal
         {
             if (entityStore.ContainsKey(key))
             {
-                Debug.Log("Store key is already exist.");
+                Logger.Log("Store key is already exist.");
                 return false;
             }
             else
@@ -186,10 +184,10 @@ namespace Assets.Scripts.Data.Internal
                     Entity entity = EntityManager.Instance.CreateEntity(EntityType.CLONE, kv.Value.DeSerializeEntity());
                     entityStore.Add(kv.Key, entity.entityId);
                 }
-                Debug.Log("Archive " + name + "read success.");
+                Logger.Log("Read Archive " + name + " success.");
                 return true;
             }
-            Debug.Log("Archive " + name + "is not exist.");
+            Logger.Log("Read Archive " + name + " is not exist.");
             return false;
         }
 
@@ -208,7 +206,7 @@ namespace Assets.Scripts.Data.Internal
 
             PlayerPrefs.SetString(name, JsonConvert.SerializeObject(serializeStore));
             PlayerPrefs.Save();
-            Debug.Log("Archive " + name + "write success.");
+            Logger.Log("Write Archive " + name + " success.");
             return true;
         }
     }

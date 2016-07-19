@@ -43,7 +43,7 @@ namespace Assets.Scripts.Data.Internal
         {
             string sourcePath = LOCAL_DB_SOURCE_PATH + tableName;
             TextAsset xmlText = Resources.Load(sourcePath) as TextAsset;
-            Debug.Assert(xmlText != null, "DB error: " + sourcePath + " not found!");
+            Logger.Assert(xmlText == null, "DB error: " + sourcePath + " not found!");
 
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.LoadXml(xmlText.text);
