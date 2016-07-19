@@ -20,13 +20,13 @@ namespace Assets.Scripts.Data.Internal
         /// Build equipment entity
         /// </summary>
         /// <param name="entity">entity input</param>
-        /// <param name="args">args[0]:<see cref="EntityType"/>, args[1]:equipment id</param>
+        /// <param name="args">args[0]:equipment id</param>
         public override void Build(Entity entity, params object[] args)
         {
             EquipmentEntity equipmentEntity = (EquipmentEntity)entity;
 
-            int id = (int)args[1];
-            Properties properties = DBProxy.Find(Table.EQUIPMENT, "id", id.ToString());
+            int id = (int)args[0];
+            PropertiesWrapper properties = DBProxy.Find(Table.EQUIPMENT, "id", id.ToString());
             equipmentEntity.properties = properties;
             CalPropsBuilder.Instance.Build(equipmentEntity);
         }

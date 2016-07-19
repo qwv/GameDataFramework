@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-
+﻿
 namespace Assets.Scripts.Data.Internal
 {
     public class SkillEntity : Entity, ISkillAvater
@@ -28,6 +25,8 @@ namespace Assets.Scripts.Data.Internal
 
         public SkillEntity(SkillEntity entity)
         {
+            type = entity.type;
+            properties = entity.properties;
         }
 
         public override void Init(params object[] args)
@@ -36,20 +35,7 @@ namespace Assets.Scripts.Data.Internal
 
         public override object Clone()
         {
-            return new SkillEntity();
-        }
-
-        public override Dictionary<string, string> Serialize()
-        {
-            Dictionary<string, string> dict = new Dictionary<string, string>();
-            dict.Add(PropName.ID, Id().ToString());
-            return dict;
-        }
-
-        public override void Deserialize(Dictionary<string, string> dict)
-        {
-            int id = Convert.ToInt32(dict[PropName.ID]);
-            EnemyBuilder.Instance.Build(this, Type(), id);
+            return new SkillEntity(this);
         }
 
         public EntityType Type()

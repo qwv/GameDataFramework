@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System;
-
+﻿
 namespace Assets.Scripts.Data.Internal
 {
     public class GoldEntity : Entity, IGoldAvater
@@ -14,6 +12,7 @@ namespace Assets.Scripts.Data.Internal
 
         public GoldEntity(GoldEntity entity)
         {
+            type = entity.type;
             this.gold = entity.gold;
         }
 
@@ -25,18 +24,6 @@ namespace Assets.Scripts.Data.Internal
         public override object Clone()
         {
             return new GoldEntity(this);
-        }
-
-        public override Dictionary<string, string> Serialize()
-        {
-            Dictionary<string, string> dict = new Dictionary<string, string>();
-            dict.Add("gold", gold.ToString());
-            return dict;
-        }
-
-        public override void Deserialize(Dictionary<string, string> dict)
-        {
-            gold = Convert.ToInt32(dict["gold"]);
         }
 
         public EntityType Type()

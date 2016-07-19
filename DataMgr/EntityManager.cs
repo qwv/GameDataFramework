@@ -29,6 +29,7 @@ namespace Assets.Scripts.Data.Internal
         {
             // Entity
             entityFactories = new Dictionary<EntityType, Factory>();
+            entityFactories.Add(EntityType.CELL, new StandardFactory<CellEntity>());
             entityFactories.Add(EntityType.PACK, new StandardFactory<PackEntity>());
             entityFactories.Add(EntityType.DROPPACK, new StandardFactory<DroppackEntity>(DroppackBuilder.Instance));
             entityFactories.Add(EntityType.GOLD, new StandardFactory<GoldEntity>());

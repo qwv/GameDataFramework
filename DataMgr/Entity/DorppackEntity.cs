@@ -20,7 +20,8 @@ namespace Assets.Scripts.Data.Internal
 
         public DroppackEntity(DroppackEntity entity) : base(entity)
         {
-            this.properties = entity.properties;
+            type = entity.type;
+            properties = entity.properties;
         }
 
         public override object Clone()

@@ -20,14 +20,14 @@ namespace Assets.Scripts.Data.Internal
         /// Build player entity
         /// </summary>
         /// <param name="entity">entity input</param>
-        /// <param name="args">args[0]:<see cref="EntityType"/>, args[1]:player id, arg[2]:level</param>
+        /// <param name="args">args[0]:player id, arg[1]:level</param>
         public override void Build(Entity entity, params object[] args)
         {
             PlayerEntity playerEntity = (PlayerEntity)entity;
 
-            int id = (int)args[1];
-            int level = (int)args[2];
-            Properties properties = DBProxy.Find(Table.PLAYER + id.ToString(), "level", level.ToString());
+            int id = (int)args[0];
+            int level = (int)args[1];
+            PropertiesWrapper properties = DBProxy.Find(Table.PLAYER + id.ToString(), "level", level.ToString());
             playerEntity.properties = properties;
             CalPropsBuilder.Instance.Build(playerEntity);
         }

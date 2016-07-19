@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System;
-
+﻿
 namespace Assets.Scripts.Data.Internal
 {
     public class ItemEntity : CalPropsEntity, IItemAvater
@@ -19,8 +17,9 @@ namespace Assets.Scripts.Data.Internal
             type = EntityType.ITEM;
         }
 
-        public ItemEntity(ItemEntity entity)
+        public ItemEntity(ItemEntity entity) : base(entity)
         {
+            type = entity.type;
         }
 
         public override void Init(params object[] args)
@@ -30,19 +29,6 @@ namespace Assets.Scripts.Data.Internal
         public override object Clone()
         {
             return new ItemEntity(this);
-        }
-
-        public override Dictionary<string, string> Serialize()
-        {
-            Dictionary<string, string> dict = new Dictionary<string, string>();
-            dict.Add(PropName.ID, Id().ToString());
-            return dict;
-        }
-
-        public override void Deserialize(Dictionary<string, string> dict)
-        {
-            int id = Convert.ToInt32(dict[PropName.ID]);
-            ItemBuilder.Instance.Build(this, Type(), id);
         }
 
         public EntityType Type()

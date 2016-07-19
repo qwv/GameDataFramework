@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-
+﻿
 namespace Assets.Scripts.Data.Internal
 {
     public class CalPropsEntity : Entity
@@ -41,6 +40,20 @@ namespace Assets.Scripts.Data.Internal
 
         public CalPropsEntity(CalPropsEntity entity)
         {
+            properties = entity.properties;
+            hp = entity.hp;
+            atk = entity.atk;
+            atkRay = entity.atkRay;
+            atkIce = entity.atkIce;
+            atkFire = entity.atkFire;
+            atkWind = entity.atkWind;
+            def = entity.def;
+            defRay = entity.defRay;
+            defIce = entity.defIce;
+            defFire = entity.defFire;
+            defWind = entity.defWind;
+            crit = entity.crit;
+            critMult = entity.critMult;
         }
 
         public override void Init(params object[] args)
@@ -50,16 +63,6 @@ namespace Assets.Scripts.Data.Internal
         public override object Clone()
         {
             return new CalPropsEntity(this);
-        }
-
-        public override Dictionary<string, string> Serialize()
-        {
-            Dictionary<string, string> dict = new Dictionary<string, string>();
-            return dict;
-        }
-
-        public override void Deserialize(Dictionary<string, string> dict)
-        {
         }
 
         public float Hp()

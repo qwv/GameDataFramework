@@ -20,13 +20,13 @@ namespace Assets.Scripts.Data.Internal
         /// Build enemy entity
         /// </summary>
         /// <param name="entity">entity input</param>
-        /// <param name="args">args[0]:<see cref="EntityType"/>, args[1]:enemy id</param>
+        /// <param name="args">args[0]:enemy id</param>
         public override void Build(Entity entity, params object[] args)
         {
             EnemyEntity enemyEntity = (EnemyEntity)entity;
 
-            int id = (int)args[1];
-            Properties properties = DBProxy.Find(Table.ENEMY, "id", id.ToString());
+            int id = (int)args[0];
+            PropertiesWrapper properties = DBProxy.Find(Table.ENEMY, "id", id.ToString());
             enemyEntity.properties = properties;
             CalPropsBuilder.Instance.Build(enemyEntity);
         }

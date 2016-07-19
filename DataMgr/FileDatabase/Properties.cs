@@ -2,13 +2,40 @@
 
 namespace Assets.Scripts.Data.Internal
 {
+    public class PropertiesWrapper : Properties
+    {
+        public string tableName;
+        public string fieldName;
+        public string condition;
+
+        public PropertiesWrapper() { }
+
+        public PropertiesWrapper(Properties properties, string tableName, string fieldName, string condition) 
+            : base(properties)
+        {
+            this.tableName = tableName;
+            this.fieldName = fieldName;
+            this.condition = condition;
+        }
+
+        public void Redirect()
+        {
+            this.dict = FileDataBase.Instance.Find(tableName, fieldName, condition).dict;
+        }
+    }
+
     public class Properties
     {
-        Dictionary<string, string> dict;
+        protected Dictionary<string, string> dict;
 
         public Properties()
         {
             dict = new Dictionary<string, string>();
+        }
+
+        protected Properties(Properties prop)
+        {
+            this.dict = prop.dict;
         }
 
         public void Add(string key, string value)

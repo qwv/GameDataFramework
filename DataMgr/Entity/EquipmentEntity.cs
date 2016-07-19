@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-
+﻿
 namespace Assets.Scripts.Data.Internal
 {
     public class EquipmentEntity : CalPropsEntity, IEquipmentAvater
@@ -18,8 +15,9 @@ namespace Assets.Scripts.Data.Internal
             type = EntityType.EQUIPMENT;
         }
 
-        public EquipmentEntity(EquipmentEntity entity)
+        public EquipmentEntity(EquipmentEntity entity) : base(entity)
         {
+            type = entity.type;
         }
 
         public override void Init(params object[] args)
@@ -28,20 +26,7 @@ namespace Assets.Scripts.Data.Internal
 
         public override object Clone()
         {
-            return new EquipmentEntity();
-        }
-
-        public override Dictionary<string, string> Serialize()
-        {
-            Dictionary<string, string> dict = new Dictionary<string, string>();
-            dict.Add(PropName.ID, Id().ToString());
-            return dict;
-        }
-
-        public override void Deserialize(Dictionary<string, string> dict)
-        {
-            int id = Convert.ToInt32(dict[PropName.ID]);
-            EnemyBuilder.Instance.Build(this, Type(), id);
+            return new EquipmentEntity(this);
         }
 
         public EntityType Type()

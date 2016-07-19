@@ -4,7 +4,8 @@ namespace Assets.Scripts.Data.Internal
 {
     public class CellEntity : Entity, ICellAvater
     {
-        private List<Entity> stack;
+        public int stack;
+        public Entity goods;
 
         public CellEntity()
         {
@@ -13,27 +14,22 @@ namespace Assets.Scripts.Data.Internal
 
         public CellEntity(CellEntity entity)
         {
+            type = entity.type;
+            stack = entity.stack;
+            if (stack > 0)
+            {
+                goods = EntityManager.Instance.CreateEntity(EntityType.CLONE, entity.goods);
+            }
         }
 
         public override void Init(params object[] args)
         {
-            stack = new List<Entity>();
+            stack = 0;
         }
 
         public override object Clone()
         {
             return new CellEntity(this);
-        }
-
-        public override Dictionary<string, string> Serialize()
-        {
-            Dictionary<string, string> dict = new Dictionary<string, string>();
-            return dict;
-        }
-
-        public override void Deserialize(Dictionary<string, string> dict)
-        {
-            
         }
 
         public EntityType Type()
@@ -46,9 +42,9 @@ namespace Assets.Scripts.Data.Internal
             return entityId;
         }
 
-        public int Count()
+        public int Stack()
         {
-            return stack.Count;
+            return stack;
         }
 
         public bool Add(Entity entity)
@@ -58,47 +54,53 @@ namespace Assets.Scripts.Data.Internal
                 return false;
             }
 
-            if (stack.Count > 0)
+            if (stack > 0)
             {
-                if (stack.Count >= stack[0].StackNum() || !stack[0].Same(entity))
+                if (stack >= goods.StackNum() || !goods.Same(entity))
                 {
                     return false;
                 }
             }
-            stack.Add(entity);
+            stack++;
+            goods = entity;
             return true;
         }
 
         public Entity Get()
         {
-            if (stack.Count > 0)
-            {
-                return stack[0];
-            }
-            return null;
+            return goods;
         }
 
         public void Remove()
         {
-            stack.RemoveAt(0);
+            if (stack > 0)
+            {
+                if (--stack == 0)
+                {
+                    goods = null;
+                }
+            }
         }
 
         public void clear()
         {
-            stack.Clear();
+            stack = 0;
+            goods = null;
         }
 
         public static bool SwapCell(CellEntity cell1, CellEntity cell2)
         {
-            List<Entity> temp = cell1.stack;
+            CellEntity temp = cell1;
             cell1.stack = cell2.stack;
-            cell2.stack = temp;
+            cell1.goods = cell2.goods;
+            cell2.stack = temp.stack;
+            cell2.goods = temp.goods;
             return true;
         }
 
         public static bool MergeCell(CellEntity cell1, CellEntity cell2, int num = 10000)
         {
-            num = num < cell2.Count() ? num : cell2.Count();
+            num = num < cell2.Stack() ? num : cell2.Stack();
 
             for (int i = 0; i < num; i++)
             {

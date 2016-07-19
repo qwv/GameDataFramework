@@ -74,14 +74,14 @@ namespace Assets.Scripts.Data.Internal
             return db.ContainsKey(tableName);
         }
 
-        public Properties Find(string tableName, string fieldName, string condition)
+        public PropertiesWrapper Find(string tableName, string fieldName, string condition)
         {
             if (!Exist(tableName))
             {
                 Load(tableName);
             }
 
-            return db[tableName].Find(fieldName, condition);
+            return new PropertiesWrapper(db[tableName].Find(fieldName, condition), tableName, fieldName, condition);
         }
     }
 }

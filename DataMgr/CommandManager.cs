@@ -28,6 +28,7 @@ namespace Assets.Scripts.Data.Internal
             // Command
             commandCreators = new Dictionary<CmdName, Creator>();
             commandCreators.Add(CmdName.CREATE_ENTITY, new CommandCreator<CmdCreateEntity>());
+            commandCreators.Add(CmdName.PUT_INTO_PACK, new CommandCreator<CmdPutIntoPack>());
             commandQueues = new List<Queue<Command>>();
             for (int i = 0; i < (int)Command.Priority.COUNT; i++)
             {

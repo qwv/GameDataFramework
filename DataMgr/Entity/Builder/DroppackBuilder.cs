@@ -22,13 +22,13 @@ namespace Assets.Scripts.Data.Internal
         /// Build drop pack entity
         /// </summary>
         /// <param name="entity">entity input</param>
-        /// <param name="args">args[0]:<see cref="EntityType"/>, args[1]:drop id</param>
+        /// <param name="args">args[0]:drop id</param>
         public override void Build(Entity entity, params object[] args)
         {
             DroppackEntity packEntity = (DroppackEntity)entity;
 
-            int id = (int)args[1];
-            Properties properties = DBProxy.Find(Table.DROP, "id", id.ToString());
+            int id = (int)args[0];
+            PropertiesWrapper properties = DBProxy.Find(Table.DROP, "id", id.ToString());
             // Random gold
             int goldMin = properties.GetIntValue(DroppackEntity.PropName.GOLD_MIN);
             int goldMax = properties.GetIntValue(DroppackEntity.PropName.GOLD_MAX);

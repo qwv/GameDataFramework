@@ -6,8 +6,6 @@ namespace Assets.Scripts.Data.Internal
     {
         public int capacity;
 
-        public int count;
-
         public List<CellEntity> cells;
 
         public Dictionary<string, Entity> index;
@@ -19,37 +17,28 @@ namespace Assets.Scripts.Data.Internal
 
         public PackEntity(PackEntity entity)
         {
+            type = entity.type;
+            capacity = entity.capacity;
+            cells = new List<CellEntity>(capacity);
+            for (int i = 0; i < capacity; i++)
+            {
+                cells.Add((CellEntity)EntityManager.Instance.CreateEntity(EntityType.CLONE, entity.cells[i]));
+            }
         }
 
         public override void Init(params object[] args)
         {
             capacity = (int)args[0];
-            count = 0;
             cells = new List<CellEntity>(capacity);
             for (int i = 0; i < capacity; i++)
             {
-                cells.Add(new CellEntity());
+                cells.Add((CellEntity)EntityManager.Instance.CreateEntity(EntityType.CELL));
             }
         }
 
         public override object Clone()
         {
             return new PackEntity(this);
-        }
-
-        public override Dictionary<string, string> Serialize()
-        {
-            Dictionary<string, string> dict = new Dictionary<string, string>();
-            for (int i = 0; i < capacity; i++)
-            {
-                
-            }
-            return dict;
-        }
-
-        public override void Deserialize(Dictionary<string, string> dict)
-        {
-            
         }
 
         public EntityType Type()
@@ -69,17 +58,25 @@ namespace Assets.Scripts.Data.Internal
 
         public int Count()
         {
+            int count = 0;
+            foreach (CellEntity cell in cells)
+            {
+                if (cell.Stack() > 0)
+                {
+                    count++;
+                }
+            }
             return count;
         }
 
         public bool Full()
         {
-            return count == capacity;
+            return Count() == capacity;
         }
 
         public bool Empty()
         {
-            return count == 0;
+            return Count() == 0;
         }
 
         public CellEntity Cell(int index)
@@ -131,7 +128,7 @@ namespace Assets.Scripts.Data.Internal
         {
             foreach (CellEntity cell in cells)
             {
-                if (cell.Count() > 0 && cell.Get().Same(entity))
+                if (cell.Stack() > 0 && cell.Get().Same(entity))
                 {
                     return cell;
                 }
@@ -143,7 +140,7 @@ namespace Assets.Scripts.Data.Internal
         {
             foreach (CellEntity cell in cells)
             {
-                if (cell.Count() == 0)
+                if (cell.Stack() == 0)
                 {
                     return cell;
                 }

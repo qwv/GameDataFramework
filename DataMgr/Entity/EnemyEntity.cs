@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System;
-
+﻿
 namespace Assets.Scripts.Data.Internal
 {
     public class EnemyEntity : CalPropsEntity, IEnemyAvater 
@@ -19,8 +17,9 @@ namespace Assets.Scripts.Data.Internal
             type = EntityType.ENEMY;
         }
 
-        public EnemyEntity(EnemyEntity entity)
+        public EnemyEntity(EnemyEntity entity) : base(entity)
         {
+            type = entity.type;
         }
 
         public override void Init(params object[] args)
@@ -29,20 +28,7 @@ namespace Assets.Scripts.Data.Internal
 
         public override object Clone()
         {
-            return new EnemyEntity();
-        }
-
-        public override Dictionary<string, string> Serialize()
-        {
-            Dictionary<string, string> dict = new Dictionary<string, string>();
-            dict.Add(PropName.ID, Id().ToString());
-            return dict;
-        }
-
-        public override void Deserialize(Dictionary<string, string> dict)
-        {
-            int id = Convert.ToInt32(dict[PropName.ID]);
-            EnemyBuilder.Instance.Build(this, Type(), id);
+            return new EnemyEntity(this);
         }
 
         public EntityType Type()

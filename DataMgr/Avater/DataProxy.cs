@@ -20,6 +20,7 @@ namespace Assets.Scripts.Data
     public enum CmdName
     {
         CREATE_ENTITY,
+        PUT_INTO_PACK,
     }
 
     public static class DataProxy
@@ -48,9 +49,9 @@ namespace Assets.Scripts.Data
         /// <param name="cmdName"></param>
         /// <param name="args"></param>
         /// <returns></returns>
-        public static IAvater RunCommand(CmdName cmdName, params object[] args)
+        public static object RunCommand(CmdName cmdName, params object[] args)
         {
-            return (IAvater)CommandManager.Instance.RunCommand(cmdName, args);
+            return CommandManager.Instance.RunCommand(cmdName, args);
         }
 
         /// <summary>
