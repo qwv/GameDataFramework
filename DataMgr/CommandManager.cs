@@ -28,6 +28,14 @@ namespace Assets.Scripts.Data.Internal
             commandCreators = new Dictionary<CmdName, Creator>();
             commandCreators.Add(CmdName.CREATE_ENTITY, new CommandCreator<CmdCreateEntity>());
             commandCreators.Add(CmdName.PUT_INTO_PACK, new CommandCreator<CmdPutIntoPack>());
+            commandCreators.Add(CmdName.FIND_IN_PACK, new CommandCreator<CmdFindInPack>());
+            commandCreators.Add(CmdName.SWAP_CELL, new CommandCreator<CmdSwapCell>());
+            commandCreators.Add(CmdName.MERGE_CELL, new CommandCreator<CmdMergeCell>());
+            commandCreators.Add(CmdName.SPLIT_CELL, new CommandCreator<CmdSplitCell>());
+            commandCreators.Add(CmdName.SET_EQUIPMENT_PACK, new CommandCreator<CmdSetEquipmentPack>());
+            commandCreators.Add(CmdName.ATTACK, new CommandCreator<CmdAttack>());
+            commandCreators.Add(CmdName.SKILL, new CommandCreator<CmdSkill>());
+
             commandQueues = new List<Queue<Command>>();
             for (int i = 0; i < (int)Command.Priority.COUNT; i++)
             {

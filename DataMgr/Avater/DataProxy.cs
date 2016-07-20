@@ -20,6 +20,13 @@ namespace Assets.Scripts.Data
     {
         CREATE_ENTITY,
         PUT_INTO_PACK,
+        FIND_IN_PACK,
+        SWAP_CELL,
+        MERGE_CELL,
+        SPLIT_CELL,
+        SET_EQUIPMENT_PACK,
+        ATTACK,
+        SKILL,
     }
 
     public static class DataProxy
