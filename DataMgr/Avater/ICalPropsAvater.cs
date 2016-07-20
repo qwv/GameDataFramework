@@ -5,6 +5,8 @@ namespace Assets.Scripts.Data
     {
         float Hp();
 
+        float HpMax();
+
         float Atk();
 
         float AtkRay();

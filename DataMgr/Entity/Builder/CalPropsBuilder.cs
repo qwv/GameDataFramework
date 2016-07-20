@@ -26,7 +26,7 @@ namespace Assets.Scripts.Data.Internal
             CalPropsEntity calPropsEntity = (CalPropsEntity)entity;
 
             PropertiesWrapper properties = entity.properties;
-            calPropsEntity.hp = properties.GetFloatValue(EnemyEntity.PropName.HP);
+            calPropsEntity.hpMax = properties.GetFloatValue(EnemyEntity.PropName.HP_MAX);
             calPropsEntity.atk = properties.GetFloatValue(EnemyEntity.PropName.ATK);
             calPropsEntity.atkRay = properties.GetFloatValue(EnemyEntity.PropName.ATK_RAY);
             calPropsEntity.atkIce = properties.GetFloatValue(EnemyEntity.PropName.ATK_ICE);

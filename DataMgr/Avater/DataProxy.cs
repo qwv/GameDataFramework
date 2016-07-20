@@ -27,16 +27,6 @@ namespace Assets.Scripts.Data
         /// <summary>
         /// 
         /// </summary>
-        public static void Init()
-        {
-            Logger.Log("Data interface init.");
-            // Create data manager instance
-            EntityManager.Instance.ToString();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public static void Update()
         {
             CommandManager.Instance.RunCommandQueue();
@@ -82,14 +72,6 @@ namespace Assets.Scripts.Data
         public static bool StoreEntity(string key, IAvater avater)
         {
             return ArchiveManager.Instance.StoreEntity(key, avater);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static void CreateArchive()
-        {
-            ArchiveManager.Instance.CreateArchive();
         }
 
         /// <summary>

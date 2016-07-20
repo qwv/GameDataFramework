@@ -79,7 +79,12 @@ namespace Assets.Scripts.Data.Internal
             return Count() == 0;
         }
 
-        public CellEntity Cell(int index)
+        public IAvater Cell(int index)
+        {
+            return (IAvater)Get(index);
+        }
+
+        public CellEntity Get(int index)
         {
             if (index >= 0 && index < capacity)
             {

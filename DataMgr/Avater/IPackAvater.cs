@@ -8,5 +8,9 @@ namespace Assets.Scripts.Data
         int Count();
 
         bool Full();
+
+        bool Empty();
+
+        IAvater Cell(int index);
     }
 }

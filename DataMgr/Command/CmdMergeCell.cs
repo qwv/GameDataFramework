@@ -27,15 +27,5 @@ namespace Assets.Scripts.Data.Internal
         {
             return CellEntity.MergeCell(cell1, cell2);
         }
-
-        public override RunType GetRunType()
-        {
-            return RunType.INSTANT;
-        }
-
-        public override Priority GetPriority()
-        {
-            return Priority.NORMAL;
-        }
     }
 }

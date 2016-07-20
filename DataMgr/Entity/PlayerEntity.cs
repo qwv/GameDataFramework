@@ -10,6 +10,10 @@ namespace Assets.Scripts.Data.Internal
             public const string EXP = "exp";
         }
 
+        public string equipmentPackName;
+
+        private PackEntity equipmentPack;
+
         public PlayerEntity()
         {
             type = EntityType.PLAYER;
@@ -52,6 +56,22 @@ namespace Assets.Scripts.Data.Internal
         public int Exp()
         {
             return properties.GetIntValue(PropName.EXP);
+        }
+
+        public IAvater EquipmentPack()
+        {
+            return (IAvater)equipmentPack;
+        }
+
+        public string EquipmentPackName()
+        {
+            return equipmentPackName;
+        }
+
+        public void SetEquipmentPack(string name, PackEntity pack)
+        {
+            equipmentPackName = name;
+            equipmentPack = pack;
         }
     }
 }

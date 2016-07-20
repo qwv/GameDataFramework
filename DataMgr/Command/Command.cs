@@ -25,9 +25,9 @@ namespace Assets.Scripts.Data.Internal
 
         public abstract void Init(params object[] args);
 
-        public abstract RunType GetRunType();
+        public virtual RunType GetRunType() { return RunType.INSTANT; }
 
-        public abstract Priority GetPriority();
+        public virtual Priority GetPriority() { return Priority.NORMAL; }
 
         public abstract object Execute();
     }

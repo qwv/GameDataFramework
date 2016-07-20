@@ -47,6 +47,16 @@ namespace Assets.Scripts.Data.Internal
             return stack;
         }
 
+        public IAvater Goods()
+        {
+            return (IAvater)Get();
+        }
+
+        public Entity Get()
+        {
+            return goods;
+        }
+
         public bool Add(Entity entity)
         {
             if (entity == null)
@@ -64,11 +74,6 @@ namespace Assets.Scripts.Data.Internal
             stack++;
             goods = entity;
             return true;
-        }
-
-        public Entity Get()
-        {
-            return goods;
         }
 
         public void Remove()

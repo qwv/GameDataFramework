@@ -12,6 +12,7 @@ namespace Assets.Scripts.Data.Internal
             public const string ATK_ICE_MULT = "atk_ice_mult";
             public const string ATK_FIRE_MULT = "atk_fire_mult";
             public const string ATK_WIND_MULT = "atk_wind_mult";
+            public const string ATK_ADD = "atk_add";
             public const string ATK_RAY_ADD = "atk_ray_add";
             public const string ATK_ICE_ADD = "atk_ice_add";
             public const string ATK_FIRE_ADD = "atk_fire_add";
@@ -81,6 +82,11 @@ namespace Assets.Scripts.Data.Internal
         public float AtkWindMult()
         {
             return properties.GetFloatValue(PropName.ATK_WIND_MULT);
+        }
+
+        public float AtkAdd()
+        {
+            return properties.GetFloatValue(PropName.ATK_ADD);
         }
 
         public float AtkRayAdd()

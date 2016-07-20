@@ -34,15 +34,5 @@ namespace Assets.Scripts.Data.Internal
         {
             return pack.PutInto(entity);
         }
-
-        public override RunType GetRunType()
-        {
-            return RunType.INSTANT;
-        }
-
-        public override Priority GetPriority()
-        {
-            return Priority.NORMAL;
-        }
     }
 }

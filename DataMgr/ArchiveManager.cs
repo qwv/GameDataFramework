@@ -160,7 +160,7 @@ namespace Assets.Scripts.Data.Internal
             }
         }
 
-        public void CreateArchive()
+        public void Reset()
         {
             entityStore.Clear();
         }
@@ -174,7 +174,7 @@ namespace Assets.Scripts.Data.Internal
         {
             if (HaveArchive(name))
             {
-                entityStore.Clear();
+                Reset();
 
                 Dictionary<string, SerializeEntity> serializeStore = new Dictionary<string, SerializeEntity>();
                 serializeStore = JsonConvert.DeserializeObject<Dictionary<string, SerializeEntity>>(PlayerPrefs.GetString(name));

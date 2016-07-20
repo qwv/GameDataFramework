@@ -29,15 +29,5 @@ namespace Assets.Scripts.Data.Internal
         {
             return EntityManager.Instance.CreateEntity(type, args);
         }
-
-        public override RunType GetRunType()
-        {
-            return RunType.INSTANT;
-        }
-
-        public override Priority GetPriority()
-        {
-            return Priority.NORMAL;
-        }
     }
 }
