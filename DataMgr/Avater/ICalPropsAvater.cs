@@ -30,5 +30,7 @@ namespace Assets.Scripts.Data
         float Crit();
 
         float CritMult();
+
+        void FullHp();
     }
 }

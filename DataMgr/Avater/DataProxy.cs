@@ -2,6 +2,8 @@
 
 namespace Assets.Scripts.Data
 {
+    public delegate void Notification();
+
     public enum EntityType
     {
         CELL,
@@ -18,13 +20,20 @@ namespace Assets.Scripts.Data
 
     public enum CmdName
     {
+        // Entity
         CREATE_ENTITY,
+        // Pack and cell
         PUT_INTO_PACK,
         FIND_IN_PACK,
         SWAP_CELL,
         MERGE_CELL,
         SPLIT_CELL,
+        // Player
+        ADD_PLAYER_EXP,
+        // Equipment
         SET_EQUIPMENT_PACK,
+        ENFORCE_EQUIPMENT,
+        // Damage
         ATTACK,
         SKILL,
     }

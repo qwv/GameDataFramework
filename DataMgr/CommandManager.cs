@@ -32,7 +32,9 @@ namespace Assets.Scripts.Data.Internal
             commandCreators.Add(CmdName.SWAP_CELL, new CommandCreator<CmdSwapCell>());
             commandCreators.Add(CmdName.MERGE_CELL, new CommandCreator<CmdMergeCell>());
             commandCreators.Add(CmdName.SPLIT_CELL, new CommandCreator<CmdSplitCell>());
+            commandCreators.Add(CmdName.ADD_PLAYER_EXP, new CommandCreator<CmdAddPlayerExp>());
             commandCreators.Add(CmdName.SET_EQUIPMENT_PACK, new CommandCreator<CmdSetEquipmentPack>());
+            commandCreators.Add(CmdName.ENFORCE_EQUIPMENT, new CommandCreator<CmdEnforceEquipment>());
             commandCreators.Add(CmdName.ATTACK, new CommandCreator<CmdAttack>());
             commandCreators.Add(CmdName.SKILL, new CommandCreator<CmdSkill>());
 

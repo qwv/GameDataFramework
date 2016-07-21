@@ -8,6 +8,7 @@ namespace Assets.Scripts.Data.Internal
             public const string ID = "id";
             public const string NAME = "name";
             public const string LEVEL = "level";
+            public const string EXP = "exp";
             public const string DROP_NUM = "drop_num";
             public const string DROP = "drop";
         }
@@ -54,6 +55,11 @@ namespace Assets.Scripts.Data.Internal
         public int Level()
         {
             return properties.GetIntValue(PropName.LEVEL);
+        }
+
+        public int Exp()
+        {
+            return properties.GetIntValue(PropName.EXP);
         }
 
         public int DropNum()

@@ -9,5 +9,11 @@ namespace Assets.Scripts.Data
         int Level();
 
         int Exp();
+
+        int ExpUp();
+
+        IAvater EquipmentPack();
+
+        string EquipmentPackName();
     }
 }

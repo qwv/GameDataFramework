@@ -1,35 +1,34 @@
 ﻿
 namespace Assets.Scripts.Data.Internal
 {
-    public class CmdSkill: Command
+    public class CmdEnforceEquipment : Command
     {
-        private CalPropsEntity attacker;
-        private CalPropsEntity target;
-        private SkillEntity skill;
+        private PlayerEntity player;
 
-        public CmdSkill() { }
+        public CmdEnforceEquipment() { }
 
         /// <summary>
         /// Command verify args
         /// </summary>
-        /// <param name="args">args[0]:attacker, args[1]:target</param>
+        /// <param name="args"></param>
         public override bool Verify(params object[] args)
         {
-            content = "";
             return true;
         }
 
         public override void Init(params object[] args)
         {
-            attacker = (CalPropsEntity)args[0];
-            target = (CalPropsEntity)args[1];
-            skill = (SkillEntity)args[2];
+            player = (PlayerEntity)args[0];
         }
 
         public override object Execute()
         {
-            CalculateManager.Instance.Skill(attacker, target, skill);
-            return true;
+            if (player.equipmentPack != null)
+            {
+                CalculateManager.Instance.EquipmentPackAddition(player, player.equipmentPack);
+                return true;
+            }
+            return false;
         }
 
         public override RunType GetRunType()
@@ -39,7 +38,7 @@ namespace Assets.Scripts.Data.Internal
 
         public override Priority GetPriority()
         {
-            return Priority.NORMAL;
+            return Priority.HIGHEST;
         }
     }
 }

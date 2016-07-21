@@ -12,16 +12,26 @@ namespace Assets.Scripts.Data.Internal
 
         public string equipmentPackName;
 
-        private PackEntity equipmentPack;
+        public PackEntity equipmentPack;
+
+        public int exp;
 
         public PlayerEntity()
         {
             type = EntityType.PLAYER;
+
+            equipmentPackName = "";
+            equipmentPack = null;
+            exp = 0;
         }
 
         public PlayerEntity(PlayerEntity entity) : base(entity)
         {
             type = entity.type;
+
+            equipmentPackName = entity.equipmentPackName;
+            equipmentPack = entity.equipmentPack;
+            exp = entity.exp;
         }
 
         public override void Init(params object[] args)
@@ -54,6 +64,11 @@ namespace Assets.Scripts.Data.Internal
         }
 
         public int Exp()
+        {
+            return exp;
+        }
+
+        public int ExpUp()
         {
             return properties.GetIntValue(PropName.EXP);
         }

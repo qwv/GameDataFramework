@@ -27,7 +27,7 @@ namespace Assets.Scripts.Data.Internal
         public override object Execute()
         {
             CalculateManager.Instance.Attack(attacker, target);
-            return null;
+            return true;
         }
 
         public override RunType GetRunType()
