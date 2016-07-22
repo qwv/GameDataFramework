@@ -32,5 +32,9 @@ namespace Assets.Scripts.Data
         float CritMult();
 
         void FullHp();
+
+        void AddHp(float value);
+
+        void SubHp(float value);
     }
 }

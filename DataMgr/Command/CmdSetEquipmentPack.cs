@@ -14,7 +14,7 @@ namespace Assets.Scripts.Data.Internal
         /// <param name="args">args[0]:attacker, args[1]:target</param>
         public override bool Verify(params object[] args)
         {
-            content = "";
+            content = "SetEquipmentPack";
             return true;
         }
 
@@ -29,7 +29,7 @@ namespace Assets.Scripts.Data.Internal
             Entity pack = ArchiveManager.Instance.GetEntity(packName);
             if (pack != null && pack.type == EntityType.PACK)
             {
-                player.SetEquipmentPack(packName, (PackEntity)pack);
+                player.SetEquipmentPack(packName);
                 return true;
             }
             return false;

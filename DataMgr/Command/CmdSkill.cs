@@ -15,7 +15,7 @@ namespace Assets.Scripts.Data.Internal
         /// <param name="args">args[0]:attacker, args[1]:target</param>
         public override bool Verify(params object[] args)
         {
-            content = "";
+            content = "Skill";
             return true;
         }
 

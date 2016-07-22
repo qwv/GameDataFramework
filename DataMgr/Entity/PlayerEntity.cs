@@ -12,8 +12,6 @@ namespace Assets.Scripts.Data.Internal
 
         public string equipmentPackName;
 
-        public PackEntity equipmentPack;
-
         public int exp;
 
         public PlayerEntity()
@@ -21,7 +19,6 @@ namespace Assets.Scripts.Data.Internal
             type = EntityType.PLAYER;
 
             equipmentPackName = "";
-            equipmentPack = null;
             exp = 0;
         }
 
@@ -30,7 +27,6 @@ namespace Assets.Scripts.Data.Internal
             type = entity.type;
 
             equipmentPackName = entity.equipmentPackName;
-            equipmentPack = entity.equipmentPack;
             exp = entity.exp;
         }
 
@@ -73,20 +69,14 @@ namespace Assets.Scripts.Data.Internal
             return properties.GetIntValue(PropName.EXP);
         }
 
-        public IAvater EquipmentPack()
-        {
-            return (IAvater)equipmentPack;
-        }
-
         public string EquipmentPackName()
         {
             return equipmentPackName;
         }
 
-        public void SetEquipmentPack(string name, PackEntity pack)
+        public void SetEquipmentPack(string name)
         {
             equipmentPackName = name;
-            equipmentPack = pack;
         }
     }
 }

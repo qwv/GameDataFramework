@@ -68,72 +68,72 @@ namespace Assets.Scripts.Data.Internal
             return new CalPropsEntity(this);
         }
 
-        public float Hp()
+        public virtual float Hp()
         {
             return hp;
         }
 
-        public float HpMax()
+        public virtual float HpMax()
         {
             return hpMax;
         }
 
-        public float Atk()
+        public virtual float Atk()
         {
             return atk;
         }
 
-        public float AtkRay()
+        public virtual float AtkRay()
         {
             return atkRay;
         }
 
-        public float AtkIce()
+        public virtual float AtkIce()
         {
             return atkIce;
         }
 
-        public float AtkFire()
+        public virtual float AtkFire()
         {
             return atkFire;
         }
 
-        public float AtkWind()
+        public virtual float AtkWind()
         {
             return atkWind;
         }
 
-        public float Def()
+        public virtual float Def()
         {
             return def;
         }
 
-        public float DefRay()
+        public virtual float DefRay()
         {
             return defRay;
         }
 
-        public float DefIce()
+        public virtual float DefIce()
         {
             return defIce;
         }
 
-        public float DefFire()
+        public virtual float DefFire()
         {
             return defFire;
         }
 
-        public float DefWind()
+        public virtual float DefWind()
         {
             return defWind;
         }
 
-        public float Crit()
+        public virtual float Crit()
         {
             return crit;
         }
 
-        public float CritMult()
+        public virtual float CritMult()
         {
             return critMult;
         }
@@ -157,7 +157,7 @@ namespace Assets.Scripts.Data.Internal
 
         public static CalPropsEntity operator +(CalPropsEntity operand1, CalPropsEntity operand2)
         {
-            CalPropsEntity result = new CalPropsEntity();
+            CalPropsEntity result = operand1;
             result.hp = operand1.hp + operand2.hp;
             result.hpMax = operand1.hpMax + operand2.hpMax;
             result.atk = operand1.atk + operand2.atk;

@@ -12,8 +12,6 @@ namespace Assets.Scripts.Data
 
         int ExpUp();
 
-        IAvater EquipmentPack();
-
         string EquipmentPackName();
     }
 }

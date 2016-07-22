@@ -14,6 +14,7 @@ namespace Assets.Scripts.Data.Internal
         /// <param name="args">args[0]:<see cref="EntityType"/></param>
         public override bool Verify(params object[] args)
         {
+            content = "MergeCell";
             return true;
         }
 

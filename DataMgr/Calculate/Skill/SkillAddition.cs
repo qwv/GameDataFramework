@@ -12,27 +12,27 @@ namespace Assets.Scripts.Data.Internal
             this.skill = skill;
         }
 
-        public new float Atk()
+        public override float Atk()
         {
             return calProps.atk * skill.AtkMult() + skill.AtkAdd();
         }
 
-        public new float AtkRay()
+        public override float AtkRay()
         {
             return calProps.atkRay * skill.AtkRayMult() + skill.AtkRayAdd();
         }
 
-        public new float AtkIce()
+        public override float AtkIce()
         {
             return calProps.atkIce * skill.AtkIceMult() + skill.AtkIceAdd(); ;
         }
 
-        public new float AtkFire()
+        public override float AtkFire()
         {
             return calProps.atkFire * skill.AtkFireMult() + skill.AtkFireAdd();
         }
 
-        public new float AtkWind()
+        public override float AtkWind()
         {
             return calProps.atkWind * skill.AtkWindMult() + skill.AtkWindAdd();
         }

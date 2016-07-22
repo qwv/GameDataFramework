@@ -14,7 +14,7 @@ namespace Assets.Scripts.Data.Internal
         /// <param name="args">args[0]:packvater, args[1]:entity avater</param>
         public override bool Verify(params object[] args)
         {
-            content = "";
+            content = "FindInPack";
             IAvater pack = (IAvater)args[0];
             if (pack.Type() != EntityType.PACK)
             {   

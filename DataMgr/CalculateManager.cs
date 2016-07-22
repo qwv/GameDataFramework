@@ -21,7 +21,7 @@ namespace Assets.Scripts.Data.Internal
         {
         }
 
-        public void PropertiesAddition(CalPropsEntity target, CalPropsEntity calProps)
+        public void PropertiesAddition(ref CalPropsEntity target, CalPropsEntity calProps)
         {
             target += calProps;
         }
@@ -36,7 +36,7 @@ namespace Assets.Scripts.Data.Internal
                 if (cell.stack > 0 && (cell.goods.type == EntityType.EQUIPMENT ||
                                        cell.goods.type == EntityType.ITEM))
                 {
-                    PropertiesAddition(target, (CalPropsEntity)cell.goods);
+                    PropertiesAddition(ref target, (CalPropsEntity)cell.goods);
                 }
             }
         }

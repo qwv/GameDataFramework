@@ -15,7 +15,7 @@ namespace Assets.Scripts.Data.Internal
         /// <param name="args">args[0]:attacker, args[1]:target</param>
         public override bool Verify(params object[] args)
         {
-            content = "";
+            content = "AddPlayerExp";
             return true;
         }
 
@@ -33,9 +33,11 @@ namespace Assets.Scripts.Data.Internal
             {
                 player.exp -= player.ExpUp();
                 PlayerBuilder.Instance.Build(player, player.Id(), player.Level() + 1);
-                if (player.equipmentPack != null)
+
+                PackEntity equipmentPack = (PackEntity)ArchiveManager.Instance.GetEntity(player.equipmentPackName);
+                if (equipmentPack != null)
                 {
-                    CalculateManager.Instance.EquipmentPackAddition(player, player.equipmentPack);
+                    CalculateManager.Instance.EquipmentPackAddition(player, equipmentPack);
                 }
 
                 if (levelUpNotification != null)

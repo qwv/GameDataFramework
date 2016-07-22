@@ -13,6 +13,7 @@ namespace Assets.Scripts.Data.Internal
         /// <param name="args"></param>
         public override bool Verify(params object[] args)
         {
+            content = "EnforceEquipment";
             return true;
         }
 
@@ -23,9 +24,10 @@ namespace Assets.Scripts.Data.Internal
 
         public override object Execute()
         {
-            if (player.equipmentPack != null)
+            PackEntity equipmentPack = (PackEntity)ArchiveManager.Instance.GetEntity(player.equipmentPackName);
+            if (equipmentPack != null)
             {
-                CalculateManager.Instance.EquipmentPackAddition(player, player.equipmentPack);
+                CalculateManager.Instance.EquipmentPackAddition(player, equipmentPack);
                 return true;
             }
             return false;
