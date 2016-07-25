@@ -5,7 +5,6 @@ namespace Assets.Scripts.Data.Internal
     {
         public new class PropName : CalPropsEntity.PropName
         {
-            public const string ID = "id";
             public const string LEVEL = "level";
             public const string EXP = "exp";
         }
@@ -49,14 +48,14 @@ namespace Assets.Scripts.Data.Internal
             return entityId;
         }
 
-        public int Id()
-        {
-            return properties.GetIntValue(PropName.ID);
-        }
-
         public int Level()
         {
             return properties.GetIntValue(PropName.LEVEL);
+        }
+
+        public int LevelMax()
+        {
+            return properties.TableCount();
         }
 
         public int Exp()

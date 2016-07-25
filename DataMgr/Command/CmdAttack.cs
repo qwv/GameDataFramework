@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace Assets.Scripts.Data.Internal
 {
     public class CmdAttack: Command
@@ -6,16 +7,10 @@ namespace Assets.Scripts.Data.Internal
         private CalPropsEntity attacker;
         private CalPropsEntity target;
 
-        public CmdAttack() { }
-
-        /// <summary>
-        /// Command verify args
-        /// </summary>
-        /// <param name="args">args[0]:attacker, args[1]:target</param>
-        public override bool Verify(params object[] args)
+        public CmdAttack()
         {
-            content = "Attack";
-            return true;
+            message = base.GetType().Name;
+            argsType = new Type[] { typeof(CalPropsEntity), typeof(CalPropsEntity) };
         }
 
         public override void Init(params object[] args)

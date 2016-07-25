@@ -1,20 +1,15 @@
-﻿
+﻿using System;
+
 namespace Assets.Scripts.Data.Internal
 {
     public class CmdEnforceEquipment : Command
     {
         private PlayerEntity player;
 
-        public CmdEnforceEquipment() { }
-
-        /// <summary>
-        /// Command verify args
-        /// </summary>
-        /// <param name="args"></param>
-        public override bool Verify(params object[] args)
+        public CmdEnforceEquipment()
         {
-            content = "EnforceEquipment";
-            return true;
+            message = base.GetType().Name;
+            argsType = new Type[] { typeof(PlayerEntity) };
         }
 
         public override void Init(params object[] args)

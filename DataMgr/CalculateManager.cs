@@ -41,18 +41,20 @@ namespace Assets.Scripts.Data.Internal
             }
         }
 
-        public void Attack(CalPropsEntity attacker, CalPropsEntity target)
+        public float Attack(CalPropsEntity attacker, CalPropsEntity target)
         {
             DamageFormula formula = new DamageFormula();
             formula.Calculate(attacker, target);
             target.SubHp(formula.Result);
+            return formula.Result;
         }
 
-        public void Skill(CalPropsEntity attacker, CalPropsEntity target, SkillEntity skill)
+        public float Skill(CalPropsEntity attacker, CalPropsEntity target, SkillEntity skill)
         {
             DamageFormula formula = new DamageFormula();
             formula.Calculate(new SkillAddition(attacker, skill), target);
             target.SubHp(formula.Result);
+            return formula.Result;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace Assets.Scripts.Data.Internal
 {
     public class CmdSkill: Command
@@ -7,16 +8,10 @@ namespace Assets.Scripts.Data.Internal
         private CalPropsEntity target;
         private SkillEntity skill;
 
-        public CmdSkill() { }
-
-        /// <summary>
-        /// Command verify args
-        /// </summary>
-        /// <param name="args">args[0]:attacker, args[1]:target</param>
-        public override bool Verify(params object[] args)
+        public CmdSkill() 
         {
-            content = "Skill";
-            return true;
+            message = base.GetType().Name;
+            argsType = new Type[] { typeof(CalPropsEntity), typeof(CalPropsEntity), typeof(SkillEntity) };
         }
 
         public override void Init(params object[] args)

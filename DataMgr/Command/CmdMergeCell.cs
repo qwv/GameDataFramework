@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace Assets.Scripts.Data.Internal
 {
     public class CmdMergeCell : Command
@@ -6,16 +7,10 @@ namespace Assets.Scripts.Data.Internal
         CellEntity cell1;
         CellEntity cell2;
 
-        public CmdMergeCell() { }
-
-        /// <summary>
-        /// Command verify args
-        /// </summary>
-        /// <param name="args">args[0]:<see cref="EntityType"/></param>
-        public override bool Verify(params object[] args)
+        public CmdMergeCell()
         {
-            content = "MergeCell";
-            return true;
+            message = base.GetType().Name;
+            argsType = new Type[] { typeof(CellEntity), typeof(CellEntity) };
         }
 
         public override void Init(params object[] args)

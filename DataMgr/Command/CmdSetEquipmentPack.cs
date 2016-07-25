@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace Assets.Scripts.Data.Internal
 {
     public class CmdSetEquipmentPack: Command
@@ -6,16 +7,10 @@ namespace Assets.Scripts.Data.Internal
         private PlayerEntity player;
         private string packName;
 
-        public CmdSetEquipmentPack() { }
-
-        /// <summary>
-        /// Command verify args
-        /// </summary>
-        /// <param name="args">args[0]:attacker, args[1]:target</param>
-        public override bool Verify(params object[] args)
+        public CmdSetEquipmentPack() 
         {
-            content = "SetEquipmentPack";
-            return true;
+            message = base.GetType().Name;
+            argsType = new Type[] { typeof(PlayerEntity), typeof(string) };
         }
 
         public override void Init(params object[] args)

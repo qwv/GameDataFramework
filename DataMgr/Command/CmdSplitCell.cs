@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace Assets.Scripts.Data.Internal
 {
     public class CmdSplitCell : Command
@@ -7,16 +8,10 @@ namespace Assets.Scripts.Data.Internal
         CellEntity cell;
         int num;
 
-        public CmdSplitCell() { }
-
-        /// <summary>
-        /// Command verify args
-        /// </summary>
-        /// <param name="args">args[0]:<see cref="EntityType"/></param>
-        public override bool Verify(params object[] args)
+        public CmdSplitCell() 
         {
-            content = "SplitCell";
-            return true;
+            message = base.GetType().Name;
+            argsType = new Type[] { typeof(PackEntity), typeof(CellEntity), typeof(int) };
         }
 
         public override void Init(params object[] args)

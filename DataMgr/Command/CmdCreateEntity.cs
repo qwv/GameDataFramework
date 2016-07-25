@@ -7,16 +7,10 @@ namespace Assets.Scripts.Data.Internal
         private EntityType type;
         private object[] args;
 
-        public CmdCreateEntity() { }
-
-        /// <summary>
-        /// Command verify args
-        /// </summary>
-        /// <param name="args">args[0]:<see cref="EntityType"/></param>
-        public override bool Verify(params object[] args)
+        public CmdCreateEntity() 
         {
-            content = "CreateEntity";
-            return true;
+            message = base.GetType().Name;
+            argsType = new Type[] { typeof(EntityType) };
         }
 
         public override void Init(params object[] args)

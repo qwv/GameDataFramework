@@ -22,6 +22,11 @@ namespace Assets.Scripts.Data.Internal
         {
             this.dict = FileDataBase.Instance.Find(tableName, fieldName, condition).dict;
         }
+
+        public int TableCount()
+        {
+            return FileDataBase.Instance.Count(tableName);
+        }
     }
 
     public class Properties

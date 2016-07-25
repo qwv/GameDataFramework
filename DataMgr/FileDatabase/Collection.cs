@@ -26,5 +26,10 @@ namespace Assets.Scripts.Data.Internal
             Logger.Assert(!collection.ContainsKey(key), "DB Error: Invaild key.");
             return collection[key];
         }
+
+        public int Count()
+        {
+            return collection.Count;
+        }
     }
 }

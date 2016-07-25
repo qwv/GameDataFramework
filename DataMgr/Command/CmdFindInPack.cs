@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace Assets.Scripts.Data.Internal
 {
     public class CmdFindInPack : Command
@@ -6,22 +7,10 @@ namespace Assets.Scripts.Data.Internal
         private PackEntity pack;
         private Entity entity;
 
-        public CmdFindInPack() { }
-
-        /// <summary>
-        /// Command verify args
-        /// </summary>
-        /// <param name="args">args[0]:packvater, args[1]:entity avater</param>
-        public override bool Verify(params object[] args)
+        public CmdFindInPack() 
         {
-            content = "FindInPack";
-            IAvater pack = (IAvater)args[0];
-            if (pack.Type() != EntityType.PACK)
-            {   
-                //errorMessage = "args 0 is not a pack avater";
-                return false;
-            }
-            return true;
+            message = base.GetType().Name;
+            argsType = new Type[] { typeof(PackEntity), typeof(Entity) };
         }
 
         public override void Init(params object[] args)

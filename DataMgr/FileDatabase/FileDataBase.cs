@@ -83,5 +83,15 @@ namespace Assets.Scripts.Data.Internal
 
             return new PropertiesWrapper(db[tableName].Find(fieldName, condition), tableName, fieldName, condition);
         }
+
+        public int Count(string tableName)
+        {
+            if (Exist(tableName))
+            {
+                return db[tableName].Count();
+            }
+
+            return 0;
+        }
     }
 }

@@ -4,9 +4,9 @@ namespace Assets.Scripts.Data
 {
     public interface IPlayerAvater : IAvater, ICalPropsAvater
     {
-        int Id();
-
         int Level();
+
+        int LevelMax();
 
         int Exp();
 

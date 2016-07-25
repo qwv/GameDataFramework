@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace Assets.Scripts.Data.Internal
 {
     public class CmdAddPlayerExp: Command
@@ -7,16 +8,10 @@ namespace Assets.Scripts.Data.Internal
         private int exp;
         private Notification levelUpNotification;
 
-        public CmdAddPlayerExp() { }
-
-        /// <summary>
-        /// Command verify args
-        /// </summary>
-        /// <param name="args">args[0]:attacker, args[1]:target</param>
-        public override bool Verify(params object[] args)
+        public CmdAddPlayerExp() 
         {
-            content = "AddPlayerExp";
-            return true;
+            message = base.GetType().Name;
+            argsType = new Type[] { typeof(PlayerEntity), typeof(int)/*, typeof(Notification)*/ };
         }
 
         public override void Init(params object[] args)
@@ -29,9 +24,13 @@ namespace Assets.Scripts.Data.Internal
         public override object Execute()
         {
             player.exp += exp;
-            if (player.exp >= player.ExpUp())
+
+            message += " add " + exp + " exp";
+
+            if (player.exp >= player.ExpUp() && player.Level() < player.LevelMax())
             {
                 player.exp -= player.ExpUp();
+
                 PlayerBuilder.Instance.Build(player, player.Id(), player.Level() + 1);
 
                 PackEntity equipmentPack = (PackEntity)ArchiveManager.Instance.GetEntity(player.equipmentPackName);
@@ -44,6 +43,7 @@ namespace Assets.Scripts.Data.Internal
                 {
                     levelUpNotification();
                 }
+                message += " level up!";
                 return true;
             }
             return false;
