@@ -8,6 +8,8 @@ namespace Assets.Scripts.Data
 
         string Name();
 
+        int CD();
+
         float AtkMult();
 
         float AtkRayMult();

@@ -7,6 +7,7 @@ namespace Assets.Scripts.Data.Internal
         {
             public const string ID = "id";
             public const string NAME = "name";
+            public const string CD = "cd";
             public const string ATK_MULT = "atk_mult";
             public const string ATK_RAY_MULT = "atk_ray_mult";
             public const string ATK_ICE_MULT = "atk_ice_mult";
@@ -57,6 +58,11 @@ namespace Assets.Scripts.Data.Internal
         public string Name()
         {
             return properties.GetStringValue(PropName.NAME);
+        }
+
+        public int CD()
+        {
+            return properties.GetIntValue(PropName.CD);
         }
 
         public float AtkMult()

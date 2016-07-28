@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<content>
+    <id id="900001" name="宝箱1" gold_min="50" gold_max="150" value="100" item_num="2" item1_id="100001" item1_value="50" item2_id="100002" item2_value="50" />
+    <id id="900002" name="宝箱2" gold_min="50" gold_max="150" value="1000" item_num="2" item1_id="100003" item1_value="500" item2_id="100004" item2_value="500" />
+</content>

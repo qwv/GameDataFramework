@@ -79,9 +79,9 @@ namespace Assets.Scripts.Data.Internal
             return Count() == 0;
         }
 
-        public IAvater Cell(int index)
+        public ICellAvater Cell(int index)
         {
-            return (IAvater)Get(index);
+            return (ICellAvater)Get(index);
         }
 
         public CellEntity Get(int index)

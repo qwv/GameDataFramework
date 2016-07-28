@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<content>
+    <id id="101" name="大盈若冲" cd="6" atk_mult="3" atk_ray_mult="3" atk_ice_mult="1" atk_fire_mult="1" atk_wind_mult="1" atk_add="0" atk_ray_add="0" atk_ice_add="0" atk_fire_add="0" atk_wind_add="0"/>
+    <id id="102" name="归元" cd="10" atk_mult="1" atk_ray_mult="1" atk_ice_mult="1" atk_fire_mult="1" atk_wind_mult="1" atk_add="0" atk_ray_add="5" atk_ice_add="0" atk_fire_add="0" atk_wind_add="0"/>
+    <id id="103" name="天剑" cd="14" atk_mult="1" atk_ray_mult="1" atk_ice_mult="1" atk_fire_mult="1" atk_wind_mult="1" atk_add="0" atk_ray_add="3" atk_ice_add="0" atk_fire_add="0" atk_wind_add="0"/>
+    <id id="104" name="雷罡结界" cd="20" atk_mult="1" atk_ray_mult="2" atk_ice_mult="1" atk_fire_mult="1" atk_wind_mult="1" atk_add="0" atk_ray_add="2" atk_ice_add="0" atk_fire_add="0" atk_wind_add="0"/>
+    <id id="105" name="龙" cd="0" atk_mult="1" atk_ray_mult="5" atk_ice_mult="1" atk_fire_mult="1" atk_wind_mult="1" atk_add="0" atk_ray_add="0" atk_ice_add="0" atk_fire_add="0" atk_wind_add="0"/>
+    <id id="901" name="大象横砍" cd="0" atk_mult="4" atk_ray_mult="1" atk_ice_mult="1" atk_fire_mult="1" atk_wind_mult="1" atk_add="0" atk_ray_add="0" atk_ice_add="0" atk_fire_add="0" atk_wind_add="0"/>
+    <id id="902" name="大象竖砍" cd="0" atk_mult="4" atk_ray_mult="1" atk_ice_mult="1" atk_fire_mult="1" atk_wind_mult="1" atk_add="0" atk_ray_add="0" atk_ice_add="0" atk_fire_add="0" atk_wind_add="0"/>
+    <id id="903" name="大象跳砍" cd="0" atk_mult="4" atk_ray_mult="1" atk_ice_mult="1" atk_fire_mult="1" atk_wind_mult="1" atk_add="0" atk_ray_add="0" atk_ice_add="0" atk_fire_add="0" atk_wind_add="0"/>
+    <id id="904" name="大象跳跃重砍" cd="0" atk_mult="5" atk_ray_mult="1" atk_ice_mult="1" atk_fire_mult="1" atk_wind_mult="1" atk_add="0" atk_ray_add="0" atk_ice_add="0" atk_fire_add="0" atk_wind_add="0"/>
+    <id id="905" name="大象冲刺" cd="0" atk_mult="4" atk_ray_mult="1" atk_ice_mult="1" atk_fire_mult="1" atk_wind_mult="1" atk_add="0" atk_ray_add="0" atk_ice_add="0" atk_fire_add="0" atk_wind_add="0"/>
+    <id id="906" name="大象丢小石头" cd="0" atk_mult="2" atk_ray_mult="1" atk_ice_mult="1" atk_fire_mult="1" atk_wind_mult="1" atk_add="0" atk_ray_add="0" atk_ice_add="0" atk_fire_add="0" atk_wind_add="0"/>
+    <id id="907" name="大象丢中石头" cd="0" atk_mult="4" atk_ray_mult="1" atk_ice_mult="1" atk_fire_mult="1" atk_wind_mult="1" atk_add="0" atk_ray_add="0" atk_ice_add="0" atk_fire_add="0" atk_wind_add="0"/>
+    <id id="908" name="大象丢大石头" cd="0" atk_mult="6" atk_ray_mult="1" atk_ice_mult="1" atk_fire_mult="1" atk_wind_mult="1" atk_add="0" atk_ray_add="0" atk_ice_add="0" atk_fire_add="0" atk_wind_add="0"/>
+    <id id="909" name="小石头反击" cd="0" atk_mult="3" atk_ray_mult="1" atk_ice_mult="1" atk_fire_mult="1" atk_wind_mult="1" atk_add="0" atk_ray_add="5" atk_ice_add="0" atk_fire_add="0" atk_wind_add="0"/>
+    <id id="910" name="中石头反击" cd="0" atk_mult="5" atk_ray_mult="1" atk_ice_mult="1" atk_fire_mult="1" atk_wind_mult="1" atk_add="0" atk_ray_add="5" atk_ice_add="0" atk_fire_add="0" atk_wind_add="0"/>
+</content>

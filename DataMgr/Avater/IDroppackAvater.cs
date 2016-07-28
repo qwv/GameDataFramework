@@ -5,6 +5,8 @@ namespace Assets.Scripts.Data
     {
         int Id();
 
+        string Name();
+
         int GoldMin();
 
         int GoldMax();

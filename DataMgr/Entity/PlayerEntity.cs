@@ -48,6 +48,11 @@ namespace Assets.Scripts.Data.Internal
             return entityId;
         }
 
+        public int Id()
+        {
+            return 101;
+        }
+
         public int Level()
         {
             return properties.GetIntValue(PropName.LEVEL);

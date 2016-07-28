@@ -6,6 +6,7 @@ namespace Assets.Scripts.Data.Internal
         public class PropName
         {
             public const string ID = "id";
+            public const string NAME = "name";
             public const string GOLD_MIN = "gold_min";
             public const string GOLD_MAX = "gold_max";
             public const string VALUE = "value";
@@ -37,6 +38,11 @@ namespace Assets.Scripts.Data.Internal
         public int Id()
         {
             return properties.GetIntValue(PropName.ID);
+        }
+
+        public string Name()
+        {
+            return properties.GetStringValue(PropName.NAME);
         }
 
         public int GoldMin()

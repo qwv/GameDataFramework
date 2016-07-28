@@ -11,6 +11,6 @@ namespace Assets.Scripts.Data
 
         bool Empty();
 
-        IAvater Cell(int index);
+        ICellAvater Cell(int index);
     }
 }
