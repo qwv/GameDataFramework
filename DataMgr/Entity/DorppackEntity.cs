@@ -30,6 +30,11 @@ namespace Assets.Scripts.Data.Internal
             return new DroppackEntity(this);
         }
 
+        public string DebugTag()
+        {
+            return Name() + "(" + entityId + ")";
+        }
+
         public new EntityType Type()
         {
             return type;

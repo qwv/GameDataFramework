@@ -41,6 +41,11 @@ namespace Assets.Scripts.Data.Internal
             return new PackEntity(this);
         }
 
+        public string DebugTag()
+        {
+            return "Pack(" + entityId + ")";
+        }
+
         public EntityType Type()
         {
             return type;

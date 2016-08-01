@@ -26,6 +26,11 @@ namespace Assets.Scripts.Data.Internal
             return new GoldEntity(this);
         }
 
+        public string DebugTag()
+        {
+            return "Gold(" + entityId + ")";
+        }
+
         public EntityType Type()
         {
             return type;

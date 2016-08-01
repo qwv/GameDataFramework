@@ -17,11 +17,15 @@ namespace Assets.Scripts.Data.Internal
         {
             attacker = (CalPropsEntity)args[0];
             target = (CalPropsEntity)args[1];
+
+            message += " " + ((IAvater)args[0]).DebugTag();
+            message += " " + ((IAvater)args[1]).DebugTag();
         }
 
         public override object Execute()
         {
-            CalculateManager.Instance.Attack(attacker, target);
+            float damage = CalculateManager.Instance.Attack(attacker, target);
+            message += " damage " + damage.ToString();
             return true;
         }
 

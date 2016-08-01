@@ -54,8 +54,9 @@ namespace Assets.Scripts.Data.Internal
                 switch (cmd.GetRunType())
                 {
                     case Command.RunType.INSTANT:
+                        object result = cmd.Execute();
                         Logger.Log("Run command: " + cmd.message);
-                        return cmd.Execute();
+                        return result;
                     case Command.RunType.INTERVAL:
                         commandQueues[(int)cmd.GetPriority()].Enqueue(cmd);
                         break;
@@ -71,8 +72,8 @@ namespace Assets.Scripts.Data.Internal
                 while (queue.Count != 0)
                 {
                     Command cmd = queue.Dequeue();
-                    Logger.Log("Run command: " + cmd.message);
                     cmd.Execute();
+                    Logger.Log("Run command: " + cmd.message);
                 }
             }
         }

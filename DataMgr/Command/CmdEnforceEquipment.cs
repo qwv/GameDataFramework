@@ -15,6 +15,8 @@ namespace Assets.Scripts.Data.Internal
         public override void Init(params object[] args)
         {
             player = (PlayerEntity)args[0];
+
+            message += " " + player.DebugTag();
         }
 
         public override object Execute()

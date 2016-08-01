@@ -17,6 +17,9 @@ namespace Assets.Scripts.Data.Internal
         {
             player = (PlayerEntity)args[0];
             packName = (string)args[1];
+
+            message += " " + player.DebugTag();
+            message += " " + packName;
         }
 
         public override object Execute()

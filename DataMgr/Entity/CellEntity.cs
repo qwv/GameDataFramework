@@ -32,6 +32,11 @@ namespace Assets.Scripts.Data.Internal
             return new CellEntity(this);
         }
 
+        public string DebugTag()
+        {
+            return "Cell(" + entityId + ")";
+        }
+
         public EntityType Type()
         {
             return type;

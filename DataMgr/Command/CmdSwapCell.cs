@@ -17,6 +17,9 @@ namespace Assets.Scripts.Data.Internal
         {
             cell1 = (CellEntity)args[0];
             cell2 = (CellEntity)args[1];
+
+            message += " " + cell1.DebugTag();
+            message += " " + cell2.DebugTag();
         }
 
         public override object Execute()

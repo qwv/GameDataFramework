@@ -19,13 +19,14 @@ namespace Assets.Scripts.Data.Internal
             player = (PlayerEntity)args[0];
             exp = (int)args[1];
             levelUpNotification = (Notification)args[2];
+
+            message += " " + player.DebugTag();
+            message += " " + exp;
         }
 
         public override object Execute()
         {
             player.exp += exp;
-
-            message += " add " + exp + " exp";
 
             if (player.exp >= player.ExpUp() && player.Level() < player.LevelMax())
             {

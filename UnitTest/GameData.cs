@@ -78,21 +78,21 @@ namespace Assets.Scripts.Game
             skillBuffer = new Dictionary<int, ISkillAvater>();
             // Player skill
             skillBuffer.Add(DataAlias.SKILL_DA_YING_RUO_CHONG, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_DA_YING_RUO_CHONG));
-            skillBuffer.Add(DataAlias.SKILL_GUI_YUAN, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_DA_YING_RUO_CHONG));
-            skillBuffer.Add(DataAlias.SKILL_TIAN_JIAN, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_DA_YING_RUO_CHONG));
+            skillBuffer.Add(DataAlias.SKILL_GUI_YUAN, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_GUI_YUAN));
+            skillBuffer.Add(DataAlias.SKILL_TIAN_JIAN, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_TIAN_JIAN));
             skillBuffer.Add(DataAlias.SKILL_LEI_GANG_JIE_JIE, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_LEI_GANG_JIE_JIE));
             skillBuffer.Add(DataAlias.SKILL_LONG, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_LONG));
-            skillBuffer.Add(DataAlias.SKILL_XIAO_SHI_TOU_FAN_JI, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_DA_YING_RUO_CHONG));
-            skillBuffer.Add(DataAlias.SKILL_ZHONG_SHI_TOU_FAN_JI, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_DA_YING_RUO_CHONG));
+            skillBuffer.Add(DataAlias.SKILL_XIAO_SHI_TOU_FAN_JI, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_XIAO_SHI_TOU_FAN_JI));
+            skillBuffer.Add(DataAlias.SKILL_ZHONG_SHI_TOU_FAN_JI, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_ZHONG_SHI_TOU_FAN_JI));
             // Elephant skill 
-            skillBuffer.Add(DataAlias.SKILL_HENG_KAN, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_DA_YING_RUO_CHONG));
-            skillBuffer.Add(DataAlias.SKILL_SHU_KAN, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_DA_YING_RUO_CHONG));
-            skillBuffer.Add(DataAlias.SKILL_TIAO_KAN, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_DA_YING_RUO_CHONG));
-            skillBuffer.Add(DataAlias.SKILL_TIAO_YUE_ZHONG_KAN, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_DA_YING_RUO_CHONG));
-            skillBuffer.Add(DataAlias.SKILL_CHONG_CI, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_DA_YING_RUO_CHONG));
-            skillBuffer.Add(DataAlias.SKILL_XIAO_SHI_TOU, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_DA_YING_RUO_CHONG));
-            skillBuffer.Add(DataAlias.SKILL_ZHONG_SHI_TOU, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_DA_YING_RUO_CHONG));
-            skillBuffer.Add(DataAlias.SKILL_DA_SHI_TOU, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_DA_YING_RUO_CHONG));
+            skillBuffer.Add(DataAlias.SKILL_HENG_KAN, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_HENG_KAN));
+            skillBuffer.Add(DataAlias.SKILL_SHU_KAN, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_SHU_KAN));
+            skillBuffer.Add(DataAlias.SKILL_TIAO_KAN, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_TIAO_KAN));
+            skillBuffer.Add(DataAlias.SKILL_TIAO_YUE_ZHONG_KAN, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_TIAO_YUE_ZHONG_KAN));
+            skillBuffer.Add(DataAlias.SKILL_CHONG_CI, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_CHONG_CI));
+            skillBuffer.Add(DataAlias.SKILL_XIAO_SHI_TOU, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_XIAO_SHI_TOU));
+            skillBuffer.Add(DataAlias.SKILL_ZHONG_SHI_TOU, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_ZHONG_SHI_TOU));
+            skillBuffer.Add(DataAlias.SKILL_DA_SHI_TOU, (ISkillAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.SKILL, DataAlias.SKILL_DA_SHI_TOU));
         }
 
         public void Load(string archive)

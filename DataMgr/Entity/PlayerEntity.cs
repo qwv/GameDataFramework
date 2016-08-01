@@ -43,6 +43,11 @@ namespace Assets.Scripts.Data.Internal
             return type;
         }
 
+        public string DebugTag()
+        {
+            return properties.tableName + "(" + entityId + ")";
+        }
+
         public int EntityId()
         {
             return entityId;

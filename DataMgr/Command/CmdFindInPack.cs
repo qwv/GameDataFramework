@@ -17,6 +17,9 @@ namespace Assets.Scripts.Data.Internal
         {
             pack = (PackEntity)args[0];
             entity = (Entity)args[1];
+
+            message += " " + pack.DebugTag();
+            message += " " + ((IAvater)args[1]).DebugTag();
         }
 
         public override object Execute()

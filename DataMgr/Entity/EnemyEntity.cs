@@ -32,6 +32,11 @@ namespace Assets.Scripts.Data.Internal
             return new EnemyEntity(this);
         }
 
+        public string DebugTag()
+        {
+            return Name() + "(" + entityId + ")";
+        }
+
         public EntityType Type()
         {
             return type;

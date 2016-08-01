@@ -29,6 +29,11 @@ namespace Assets.Scripts.Data.Internal
             return new EquipmentEntity(this);
         }
 
+        public string DebugTag()
+        {
+            return Name() + "(" + entityId + ")";
+        }
+
         public EntityType Type()
         {
             return type;

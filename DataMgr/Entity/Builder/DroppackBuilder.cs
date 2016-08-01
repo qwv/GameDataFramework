@@ -35,12 +35,12 @@ namespace Assets.Scripts.Data.Internal
             int gold = Random.Range(goldMin, goldMax + 1);
             // Random item
             List<int> itemList = new List<int>();
-            int value = properties.GetIntValue(DroppackEntity.PropName.VALUE);
+            float value = properties.GetFloatValue(DroppackEntity.PropName.VALUE);
             int itemNum = properties.GetIntValue(DroppackEntity.PropName.ITEM_NUM);
             for (int i = 0; i < itemNum; i++)
             {
                 int itemId = properties.GetIntValue(DroppackEntity.PropName.ITEM + (i + 1) + "_id");
-                int itemValue = properties.GetIntValue(DroppackEntity.PropName.ITEM + (i + 1) + "_value");
+                float itemValue = properties.GetFloatValue(DroppackEntity.PropName.ITEM + (i + 1) + "_value");
 
                 if (Random.Range(0f, 1.0f) < itemValue / value)
                 {
@@ -55,7 +55,7 @@ namespace Assets.Scripts.Data.Internal
             GoldEntity goldEntity = (GoldEntity)EntityManager.Instance.CreateEntity(EntityType.GOLD, gold);
             packEntity.PutInto(goldEntity);
 
-            for (int i = 0; i < capacity; i++)
+            for (int i = 0; i < itemList.Count; i++)
             {
                 int itemId = itemList[i];
                 ItemEntity itemEntity = (ItemEntity)EntityManager.Instance.CreateEntity(EntityType.ITEM, itemId);

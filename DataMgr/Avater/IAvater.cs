@@ -1,7 +1,7 @@
 ﻿
 namespace Assets.Scripts.Data
 {
-    public interface IAvater
+    public interface IAvater : IDebug
     {
         EntityType Type();
 

@@ -19,6 +19,10 @@ namespace Assets.Scripts.Data.Internal
             pack = (PackEntity)args[0];
             cell = (CellEntity)args[1];
             num = (int)args[2];
+
+            message += " " + pack.DebugTag();
+            message += " " + cell.DebugTag();
+            message += " " + num.ToString();
         }
 
         public override object Execute()
