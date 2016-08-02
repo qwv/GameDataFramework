@@ -9,7 +9,6 @@ namespace Assets.Scripts.Data.Internal
 
         public CmdSetEquipmentPack() 
         {
-            message = base.GetType().Name;
             argsType = new Type[] { typeof(PlayerEntity), typeof(string) };
         }
 
@@ -17,9 +16,6 @@ namespace Assets.Scripts.Data.Internal
         {
             player = (PlayerEntity)args[0];
             packName = (string)args[1];
-
-            message += " " + player.DebugTag();
-            message += " " + packName;
         }
 
         public override object Execute()

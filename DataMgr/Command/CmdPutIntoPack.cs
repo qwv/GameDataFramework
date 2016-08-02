@@ -9,7 +9,6 @@ namespace Assets.Scripts.Data.Internal
 
         public CmdPutIntoPack()
         {
-            message = base.GetType().Name;
             argsType = new Type[] { typeof(PackEntity), typeof(Entity) };
         }
 
@@ -17,9 +16,6 @@ namespace Assets.Scripts.Data.Internal
         {
             pack = (PackEntity)args[0];
             entity = (Entity)args[1];
-
-            message += " " + pack.DebugTag();
-            message += " " + ((IAvater)args[1]).DebugTag();
         }
 
         public override object Execute()

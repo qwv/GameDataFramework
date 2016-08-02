@@ -14,6 +14,7 @@ namespace Assets.Scripts.Data.Internal
             if (t.Verify(args))
             {
                 t.Init(args);
+                t.GenerateMessage(args);
                 return t;
             }
             return null;

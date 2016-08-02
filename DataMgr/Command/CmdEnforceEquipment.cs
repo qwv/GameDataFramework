@@ -8,15 +8,12 @@ namespace Assets.Scripts.Data.Internal
 
         public CmdEnforceEquipment()
         {
-            message = base.GetType().Name;
             argsType = new Type[] { typeof(PlayerEntity) };
         }
 
         public override void Init(params object[] args)
         {
             player = (PlayerEntity)args[0];
-
-            message += " " + player.DebugTag();
         }
 
         public override object Execute()

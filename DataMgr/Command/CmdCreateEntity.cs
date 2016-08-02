@@ -9,7 +9,6 @@ namespace Assets.Scripts.Data.Internal
 
         public CmdCreateEntity() 
         {
-            message = base.GetType().Name;
             argsType = new Type[] { typeof(EntityType) };
         }
 
@@ -18,9 +17,6 @@ namespace Assets.Scripts.Data.Internal
             this.type = (EntityType)args[0];
             this.args = new object[args.Length - 1]; 
             Array.Copy(args, 1, this.args, 0, args.Length - 1);
-
-            message += " " + this.type.ToString();
-            message += " " + args.ToString();
         }
 
         public override object Execute()

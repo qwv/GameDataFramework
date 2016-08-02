@@ -62,7 +62,7 @@ namespace Assets.Scripts.Data.Internal
             {
                 return entities[entityId];
             }
-            Logger.Log("Get entity: invalid entity id.");
+            Logger.LogError("Get entity: invalid entity id.");
             return null;
         }
     }

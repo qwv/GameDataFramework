@@ -10,7 +10,6 @@ namespace Assets.Scripts.Data.Internal
 
         public CmdAddPlayerExp() 
         {
-            message = base.GetType().Name;
             argsType = new Type[] { typeof(PlayerEntity), typeof(int)/*, typeof(Notification)*/ };
         }
 
@@ -19,9 +18,6 @@ namespace Assets.Scripts.Data.Internal
             player = (PlayerEntity)args[0];
             exp = (int)args[1];
             levelUpNotification = (Notification)args[2];
-
-            message += " " + player.DebugTag();
-            message += " " + exp;
         }
 
         public override object Execute()

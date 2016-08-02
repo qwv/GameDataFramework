@@ -54,5 +54,26 @@ namespace Assets.Scripts.Data.Internal
             }
             return true;
         }
+
+        /// <summary>
+        /// Generate command message by arguments
+        /// </summary>
+        /// <param name="args">args</param>
+        public virtual void GenerateMessage(params object[] args)
+        {
+            message = base.GetType().Name;
+
+            foreach (object arg in args)
+            {
+                if (typeof(IAvater).IsInstanceOfType(arg))
+                {
+                    message += " " + ((IAvater)arg).DebugTag();
+                }
+                else
+                {
+                    message += " " + arg.ToString();
+                }
+            }
+        }
     }
 }

@@ -142,7 +142,7 @@ namespace Assets.Scripts.Data.Internal
             {
                 return EntityManager.Instance.GetEntity(entityStore[key]);
             }
-            Logger.Log("Get entity: invalid entity key.");
+            Logger.LogError("Get entity: invalid entity key.");
             return null;
         }
 
@@ -150,7 +150,7 @@ namespace Assets.Scripts.Data.Internal
         {
             if (entityStore.ContainsKey(key))
             {
-                Logger.Log("Store key is already exist.");
+                Logger.LogError("Store key is already exist.");
                 return false;
             }
             else
@@ -187,7 +187,7 @@ namespace Assets.Scripts.Data.Internal
                 Logger.Log("Read Archive " + name + " success.");
                 return true;
             }
-            Logger.Log("Read Archive " + name + " is not exist.");
+            Logger.LogError("Read Archive " + name + " is not exist.");
             return false;
         }
 

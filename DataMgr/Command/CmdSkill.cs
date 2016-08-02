@@ -10,7 +10,6 @@ namespace Assets.Scripts.Data.Internal
 
         public CmdSkill() 
         {
-            message = base.GetType().Name;
             argsType = new Type[] { typeof(CalPropsEntity), typeof(CalPropsEntity), typeof(SkillEntity) };
         }
 
@@ -19,10 +18,6 @@ namespace Assets.Scripts.Data.Internal
             attacker = (CalPropsEntity)args[0];
             target = (CalPropsEntity)args[1];
             skill = (SkillEntity)args[2];
-
-            message += " " + ((IAvater)args[0]).DebugTag();
-            message += " " + ((IAvater)args[1]).DebugTag();
-            message += " " + skill.DebugTag();
         }
 
         public override object Execute()
