@@ -46,6 +46,7 @@ namespace Assets.Scripts.Data
         public static void Update()
         {
             CommandManager.Instance.RunCommandQueue();
+            EntityManager.Instance.GarbageCollection();
         }
 
         /// <summary>

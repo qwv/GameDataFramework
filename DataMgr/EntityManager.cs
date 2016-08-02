@@ -65,5 +65,23 @@ namespace Assets.Scripts.Data.Internal
             Logger.LogError("Get entity: invalid entity id.");
             return null;
         }
+
+        public void GarbageCollection()
+        {
+            List<int> garbage = new List<int>();
+
+            foreach (KeyValuePair<int, Entity> pair in entities) 
+            {
+                if (pair.Value.CanRelease())
+                {
+                    garbage.Add(pair.Key);
+                }
+            }
+
+            foreach (int key in garbage)
+            {
+                entities.Remove(key);
+            }
+        }
     }
 }

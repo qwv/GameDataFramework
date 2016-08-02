@@ -156,12 +156,21 @@ namespace Assets.Scripts.Data.Internal
             else
             {
                 entityStore.Add(key, avater.EntityId());
+                avater.Retain();
                 return true;
             }
         }
 
         public void Reset()
         {
+            foreach (KeyValuePair<string, int> pair in entityStore)
+            {
+                Entity entity = EntityManager.Instance.GetEntity(pair.Value);
+                if (entity != null)
+                {
+                    entity.Release();
+                }
+            }
             entityStore.Clear();
         }
 
@@ -179,10 +188,10 @@ namespace Assets.Scripts.Data.Internal
                 Dictionary<string, SerializeEntity> serializeStore = new Dictionary<string, SerializeEntity>();
                 serializeStore = JsonConvert.DeserializeObject<Dictionary<string, SerializeEntity>>(PlayerPrefs.GetString(name));
 
-                foreach (KeyValuePair<string, SerializeEntity> kv in serializeStore)
+                foreach (KeyValuePair<string, SerializeEntity> pair in serializeStore)
                 {
-                    Entity entity = EntityManager.Instance.CreateEntity(EntityType.CLONE, kv.Value.DeSerializeEntity());
-                    entityStore.Add(kv.Key, entity.entityId);
+                    Entity entity = EntityManager.Instance.CreateEntity(EntityType.CLONE, pair.Value.DeSerializeEntity());
+                    StoreEntity(pair.Key, (IAvater)entity);
                 }
                 Logger.Log("Read Archive " + name + " success.");
                 return true;
@@ -193,14 +202,14 @@ namespace Assets.Scripts.Data.Internal
 
         public bool WriteArchive(string name)
         {
-            Dictionary<string, SerializeEntity> serializeStore = new Dictionary<string, SerializeEntity>(); 
+            Dictionary<string, SerializeEntity> serializeStore = new Dictionary<string, SerializeEntity>();
 
-            foreach (KeyValuePair<string, int> kv in entityStore)
+            foreach (KeyValuePair<string, int> pair in entityStore)
             {
-                Entity entity = EntityManager.Instance.GetEntity(kv.Value);
+                Entity entity = EntityManager.Instance.GetEntity(pair.Value);
                 if (entity != null)
                 {
-                    serializeStore.Add(kv.Key, new SerializeEntity(entity));
+                    serializeStore.Add(pair.Key, new SerializeEntity(entity));
                 }
             }
 

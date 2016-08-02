@@ -76,8 +76,12 @@ namespace Assets.Scripts.Data.Internal
                     return false;
                 }
             }
+            else
+            {
+                goods = entity;
+                goods.Retain();
+            }
             stack++;
-            goods = entity;
             return true;
         }
 
@@ -87,12 +91,13 @@ namespace Assets.Scripts.Data.Internal
             {
                 if (--stack == 0)
                 {
+                    goods.Release();
                     goods = null;
                 }
             }
         }
 
-        public void clear()
+        public void Clear()
         {
             stack = 0;
             goods = null;

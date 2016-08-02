@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Data.Internal
 {
-    public abstract class Entity : ICloneable
+    public abstract class Entity : Ref, ICloneable
     {
         public PropertiesWrapper properties;
 
