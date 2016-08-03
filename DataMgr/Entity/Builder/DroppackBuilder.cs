@@ -29,6 +29,8 @@ namespace Assets.Scripts.Data.Internal
 
             int id = (int)args[0];
             PropertiesWrapper properties = DBProxy.Find(Table.DROP, "id", id.ToString());
+            packEntity.properties = properties;
+
             // Random gold
             int goldMin = properties.GetIntValue(DroppackEntity.PropName.GOLD_MIN);
             int goldMax = properties.GetIntValue(DroppackEntity.PropName.GOLD_MAX);

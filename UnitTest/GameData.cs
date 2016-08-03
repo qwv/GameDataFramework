@@ -16,6 +16,10 @@ namespace Assets.Scripts.Game
 
         // Enemy list
         public const int ELEPHANT_ID = 101;
+        public const int ELEPHANT_TEST1_ID = 102;
+        public const int ELEPHANT_TEST2_ID = 103;
+        public const int ELEPHANT_TEST3_ID = 104;
+        public const int ELEPHANT_TEST4_ID = 105;
         public const int LONGXIA_ID = 201;
         
         // Skill list player
@@ -52,7 +56,7 @@ namespace Assets.Scripts.Game
 
     public class GameData
     {
-        public const string ARCHIVE_1 = "__vr__archive__1__";
+        public const string ARCHIVE_1 = "__vr__archive__1__0.0.1";
 
         public string currentArchive;
 
@@ -127,10 +131,12 @@ namespace Assets.Scripts.Game
             IPlayerAvater player = (IPlayerAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.PLAYER, DataAlias.PLAYER_ID, 1);
             IPackAvater equippack = (IPackAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.PACK, 1);
             IPackAvater backpack = (IPackAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.PACK, 16);
+            IGoldAvater gold = (IGoldAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.GOLD, 0);
 
             DataProxy.StoreEntity(DataAlias.PLAYER, player);
             DataProxy.StoreEntity(DataAlias.EQUIPPACK, equippack);
             DataProxy.StoreEntity(DataAlias.BACKPACK, backpack);
+            DataProxy.StoreEntity(DataAlias.GOLD, gold);
 
             IAvater weapon = (IAvater)DataProxy.RunCommand(CmdName.CREATE_ENTITY, EntityType.EQUIPMENT, DataAlias.EQUIP_FRESH_HAND_SWORD);
             DataProxy.RunCommand(CmdName.PUT_INTO_PACK, equippack, weapon);
