@@ -27,6 +27,7 @@ namespace Assets.Scripts.Data.Internal
             // Command
             commandCreators = new Dictionary<CmdName, Creator>();
             commandCreators.Add(CmdName.CREATE_ENTITY, new CommandCreator<CmdCreateEntity>());
+            commandCreators.Add(CmdName.ADD_GOLD, new CommandCreator<CmdAddGold>());
             commandCreators.Add(CmdName.PUT_INTO_PACK, new CommandCreator<CmdPutIntoPack>());
             commandCreators.Add(CmdName.FIND_IN_PACK, new CommandCreator<CmdFindInPack>());
             commandCreators.Add(CmdName.SWAP_CELL, new CommandCreator<CmdSwapCell>());

@@ -22,6 +22,8 @@ namespace Assets.Scripts.Data
     {
         // Entity
         CREATE_ENTITY,
+        // Gold
+        ADD_GOLD,
         // Pack and cell
         PUT_INTO_PACK,
         FIND_IN_PACK,
@@ -58,6 +60,9 @@ namespace Assets.Scripts.Data
         /// 1. type <see cref="EntityType"/> 
         /// 2. id if read from config or gold num or pack capacity etc 
         /// 3. player level etc  
+        /// ADD_GOLD need args:
+        /// 1. gold store
+        /// 2. gold add
         /// PUT_INTO_PACK need args: 
         /// 1. pack
         /// 2. entity
