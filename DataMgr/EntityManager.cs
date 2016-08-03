@@ -40,7 +40,7 @@ namespace Assets.Scripts.Data.Internal
             entityFactories.Add(EntityType.CLONE, CloneFactory.Instance);
 
             entities = new Dictionary<int, Entity>(); 
-            entityIdCursor = 100000;
+            entityIdCursor = 100001;
         }
 
         private int GenerateEntityId()
