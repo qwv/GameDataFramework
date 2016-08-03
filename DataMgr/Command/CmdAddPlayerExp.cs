@@ -40,10 +40,9 @@ namespace Assets.Scripts.Data.Internal
                 {
                     levelUpNotification();
                 }
-                message += " level up!";
-                return true;
+                return true.ToString() + " level up!";
             }
-            return false;
+            return false.ToString();
         }
 
         public override RunType GetRunType()

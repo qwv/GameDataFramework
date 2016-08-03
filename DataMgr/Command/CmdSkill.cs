@@ -22,9 +22,7 @@ namespace Assets.Scripts.Data.Internal
 
         public override object Execute()
         {
-            float damage = CalculateManager.Instance.Skill(attacker, target, skill);
-            message += " damage " + damage.ToString();
-            return true;
+            return CalculateManager.Instance.Skill(attacker, target, skill);
         }
 
         public override RunType GetRunType()

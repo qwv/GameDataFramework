@@ -20,9 +20,7 @@ namespace Assets.Scripts.Data.Internal
 
         public override object Execute()
         {
-            float damage = CalculateManager.Instance.Attack(attacker, target);
-            message += " damage " + damage.ToString();
-            return true;
+            return CalculateManager.Instance.Attack(attacker, target);
         }
 
         public override RunType GetRunType()

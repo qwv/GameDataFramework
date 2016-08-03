@@ -55,7 +55,7 @@ namespace Assets.Scripts.Data.Internal
                 {
                     case Command.RunType.INSTANT:
                         object result = cmd.Execute();
-                        Logger.Log("Run command: " + cmd.message);
+                        LogCommand(cmd, result);
                         return result;
                     case Command.RunType.INTERVAL:
                         commandQueues[(int)cmd.GetPriority()].Enqueue(cmd);
@@ -72,10 +72,15 @@ namespace Assets.Scripts.Data.Internal
                 while (queue.Count != 0)
                 {
                     Command cmd = queue.Dequeue();
-                    cmd.Execute();
-                    Logger.Log("Run command: " + cmd.message);
+                    object result = cmd.Execute();
+                    LogCommand(cmd, result);
                 }
             }
+        }
+        
+        public void LogCommand(Command cmd, object result)
+        {
+            Logger.Log("Run command: " + cmd.message + "  Result: " + (typeof(IAvater).IsInstanceOfType(result) ? ((IAvater)result).DebugTag() : result.ToString()));
         }
     }
 }
