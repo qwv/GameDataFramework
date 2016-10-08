@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<content>
+    <id id="200001" name="新手剑" type="weapon" hp="0" hp_max="0" atk="6" atk_ray="4" atk_ice="0" atk_fire="0" atk_wind="0" def="0" def_ray="0" def_ice="0" def_fire="0" def_wind="0" crit="0" crit_mult="0"/>
+    <id id="200002" name="新手杖" type="weapon" hp="0" hp_max="0" atk="2" atk_ray="0" atk_ice="4" atk_fire="4" atk_wind="0" def="0" def_ray="0" def_ice="0" def_fire="0" def_wind="0" crit="0" crit_mult="0"/>
+    <id id="200003" name="新手扇" type="weapon" hp="0" hp_max="0" atk="4" atk_ray="0" atk_ice="0" atk_fire="0" atk_wind="4" def="2" def_ray="0" def_ice="0" def_fire="0" def_wind="0" crit="0" crit_mult="0"/>
+    <id id="200004" name="1星武器" type="weapon" hp="200" hp_max="0" atk="90" atk_ray="0" atk_ice="0" atk_fire="0" atk_wind="0" def="0" def_ray="0" def_ice="0" def_fire="0" def_wind="0" crit="0" crit_mult="0"/>
+    <id id="200005" name="2星武器" type="weapon" hp="200" hp_max="0" atk="90" atk_ray="0" atk_ice="0" atk_fire="0" atk_wind="0" def="90" def_ray="0" def_ice="0" def_fire="0" def_wind="0" crit="0" crit_mult="0"/>
+    <id id="200006" name="3星武器" type="weapon" hp="200" hp_max="0" atk="90" atk_ray="0" atk_ice="0" atk_fire="0" atk_wind="0" def="90" def_ray="0" def_ice="0" def_fire="0" def_wind="0" crit="20" crit_mult="0"/>
+    <id id="200007" name="4星武器" type="weapon" hp="200" hp_max="0" atk="90" atk_ray="20" atk_ice="0" atk_fire="0" atk_wind="0" def="90" def_ray="0" def_ice="0" def_fire="0" def_wind="0" crit="20" crit_mult="0"/>
+    <id id="200008" name="5星武器" type="weapon" hp="200" hp_max="0" atk="90" atk_ray="20" atk_ice="20" atk_fire="0" atk_wind="0" def="90" def_ray="0" def_ice="0" def_fire="0" def_wind="0" crit="20" crit_mult="0"/>
+</content>

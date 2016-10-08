@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<content>
+    <id id="100001" name="铁矿石" level="1" stack_num="1" model="item1" />
+    <id id="100002" name="铜矿石" level="2" stack_num="1" model="item2" />
+    <id id="100003" name="银矿石" level="3" stack_num="1" model="item3" />
+    <id id="100004" name="金矿石" level="4" stack_num="1" model="item4" />
+    <id id="100005" name="雷攻击宝石" level="1" stack_num="1" model="gem1" atk_ray="1" />
+    <id id="100006" name="雷攻击宝石" level="2" stack_num="1" model="gem1" atk_ray="2" />
+    <id id="100007" name="雷攻击宝石" level="3" stack_num="1" model="gem1" atk_ray="3" />
+    <id id="100008" name="雷攻击宝石" level="4" stack_num="1" model="gem1" atk_ray="4" />
+    <id id="100009" name="雷攻击宝石" level="5" stack_num="1" model="gem1" atk_ray="5" />
+    <id id="100010" name="雷攻击宝石" level="6" stack_num="1" model="gem1" atk_ray="6" />
+    <id id="100011" name="雷攻击宝石" level="7" stack_num="1" model="gem1" atk_ray="7" />
+    <id id="100012" name="雷攻击宝石" level="8" stack_num="1" model="gem1" atk_ray="8" />
+    <id id="100013" name="雷攻击宝石" level="9" stack_num="1" model="gem1" atk_ray="9" />
+    <id id="100014" name="雷攻击宝石" level="10" stack_num="1" model="gem1" atk_ray="10" />
+    <id id="100015" name="水攻击宝石" level="1" stack_num="1" model="gem2" atk_ice="1" />
+    <id id="100016" name="水攻击宝石" level="2" stack_num="1" model="gem2" atk_ice="2" />
+    <id id="100017" name="水攻击宝石" level="3" stack_num="1" model="gem2" atk_ice="3" />
+    <id id="100018" name="水攻击宝石" level="4" stack_num="1" model="gem2" atk_ice="4" />
+    <id id="100019" name="水攻击宝石" level="5" stack_num="1" model="gem2" atk_ice="5" />
+    <id id="100020" name="水攻击宝石" level="6" stack_num="1" model="gem2" atk_ice="6" />
+    <id id="100021" name="水攻击宝石" level="7" stack_num="1" model="gem2" atk_ice="7" />
+    <id id="100022" name="水攻击宝石" level="8" stack_num="1" model="gem2" atk_ice="8" />
+    <id id="100023" name="水攻击宝石" level="9" stack_num="1" model="gem2" atk_ice="9" />
+    <id id="100024" name="水攻击宝石" level="10" stack_num="1" model="gem2" atk_ice="10" />
+    <id id="100025" name="火攻击宝石" level="1" stack_num="1" model="gem3" atk_fire="1" />
+    <id id="100026" name="火攻击宝石" level="2" stack_num="1" model="gem3" atk_fire="2" />
+    <id id="100027" name="火攻击宝石" level="3" stack_num="1" model="gem3" atk_fire="3" />
+    <id id="100028" name="火攻击宝石" level="4" stack_num="1" model="gem3" atk_fire="4" />
+    <id id="100029" name="火攻击宝石" level="5" stack_num="1" model="gem3" atk_fire="5" />
+    <id id="100030" name="火攻击宝石" level="6" stack_num="1" model="gem3" atk_fire="6" />
+    <id id="100031" name="火攻击宝石" level="7" stack_num="1" model="gem3" atk_fire="7" />
+    <id id="100032" name="火攻击宝石" level="8" stack_num="1" model="gem3" atk_fire="8" />
+    <id id="100033" name="火攻击宝石" level="9" stack_num="1" model="gem3" atk_fire="9" />
+    <id id="100034" name="火攻击宝石" level="10" stack_num="1" model="gem3" atk_fire="10" />
+    <id id="100035" name="风攻击宝石" level="1" stack_num="1" model="gem4" atk_wind="1" />
+    <id id="100036" name="风攻击宝石" level="2" stack_num="1" model="gem4" atk_wind="2" />
+    <id id="100037" name="风攻击宝石" level="3" stack_num="1" model="gem4" atk_wind="3" />
+    <id id="100038" name="风攻击宝石" level="4" stack_num="1" model="gem4" atk_wind="4" />
+    <id id="100039" name="风攻击宝石" level="5" stack_num="1" model="gem4" atk_wind="5" />
+    <id id="100040" name="风攻击宝石" level="6" stack_num="1" model="gem4" atk_wind="6" />
+    <id id="100041" name="风攻击宝石" level="7" stack_num="1" model="gem4" atk_wind="7" />
+    <id id="100042" name="风攻击宝石" level="8" stack_num="1" model="gem4" atk_wind="8" />
+    <id id="100043" name="风攻击宝石" level="9" stack_num="1" model="gem4" atk_wind="9" />
+    <id id="100044" name="风攻击宝石" level="10" stack_num="1" model="gem4" atk_wind="10" />
+    <id id="100045" name="暴击率宝石" level="1" stack_num="1" model="gem5" crit="0.02" />
+    <id id="100046" name="暴击率宝石" level="2" stack_num="1" model="gem5" crit="0.04" />
+    <id id="100047" name="暴击率宝石" level="3" stack_num="1" model="gem5" crit="0.06" />
+    <id id="100048" name="暴击率宝石" level="4" stack_num="1" model="gem5" crit="0.08" />
+    <id id="100049" name="暴击率宝石" level="5" stack_num="1" model="gem5" crit="0.1" />
+    <id id="100050" name="暴击率宝石" level="6" stack_num="1" model="gem5" crit="0.12" />
+    <id id="100051" name="暴击率宝石" level="7" stack_num="1" model="gem5" crit="0.14" />
+    <id id="100052" name="暴击率宝石" level="8" stack_num="1" model="gem5" crit="0.16" />
+    <id id="100053" name="暴击率宝石" level="9" stack_num="1" model="gem5" crit="0.18" />
+    <id id="100054" name="暴击率宝石" level="10" stack_num="1" model="gem5" crit="0.2" />
+    <id id="100055" name="暴击倍数宝石" level="1" stack_num="1" model="gem6" crit_mult="0.15"/>
+    <id id="100056" name="暴击倍数宝石" level="2" stack_num="1" model="gem6" crit_mult="0.3"/>
+    <id id="100057" name="暴击倍数宝石" level="3" stack_num="1" model="gem6" crit_mult="0.45"/>
+    <id id="100058" name="暴击倍数宝石" level="4" stack_num="1" model="gem6" crit_mult="0.6"/>
+    <id id="100059" name="暴击倍数宝石" level="5" stack_num="1" model="gem6" crit_mult="0.75"/>
+    <id id="100060" name="暴击倍数宝石" level="6" stack_num="1" model="gem6" crit_mult="0.9"/>
+    <id id="100061" name="暴击倍数宝石" level="7" stack_num="1" model="gem6" crit_mult="1.05"/>
+    <id id="100062" name="暴击倍数宝石" level="8" stack_num="1" model="gem6" crit_mult="1.2"/>
+    <id id="100063" name="暴击倍数宝石" level="9" stack_num="1" model="gem6" crit_mult="1.35"/>
+    <id id="100064" name="暴击倍数宝石" level="10" stack_num="1" model="gem6" crit_mult="1.5"/>
+</content>

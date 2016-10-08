@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<content>
+    <id id="101" name="大象" level="1" exp="10" hp="500" hp_max="500" atk="10" atk_ray="0" atk_ice="0" atk_fire="0" atk_wind="0" def="10" def_ray="0" def_ice="0" def_fire="0" def_wind="0" crit="0" crit_mult="0" drop_num="1" drop1_id="900001" />
+    <id id="201" name="珑夏" level="1" exp="10" hp="1000" hp_max="1000" atk="1" atk_ray="1" atk_ice="0" atk_fire="0" atk_wind="0" def="100" def_ray="0" def_ice="0" def_fire="0" def_wind="0" crit="0" crit_mult="0" drop_num="1" drop1_id="900002" />
+    <id id="301" name="石头人" level="1" exp="10" hp="100" hp_max="100" atk="5" atk_ray="0" atk_ice="0" atk_fire="0" atk_wind="0" def="1" def_ray="0" def_ice="0" def_fire="0" def_wind="0" crit="0" crit_mult="0" drop_num="1" drop1_id="900001" />
+    <id id="401" name="牛头" level="1" exp="10" hp="1000" hp_max="1000" atk="20" atk_ray="0" atk_ice="10" atk_fire="10" atk_wind="0" def="5" def_ray="0" def_ice="20" def_fire="20" def_wind="0" crit="0" crit_mult="0" drop_num="1" drop1_id="900002" />
+    <id id="501" name="满级主角" level="100" exp="10" hp="200" hp_max="200" atk="10" atk_ray="0" atk_ice="0" atk_fire="0" atk_wind="0" def="10" def_ray="0" def_ice="0" def_fire="0" def_wind="0" crit="0" crit_mult="1.5" drop_num="1" drop1_id="900001" />
+    <id id="502" name="满属性主角" level="100" exp="10" hp="300" hp_max="300" atk="100" atk_ray="50" atk_ice="0" atk_fire="0" atk_wind="0" def="100" def_ray="40" def_ice="0" def_fire="0" def_wind="0" crit="0.5" crit_mult="3" drop_num="1" drop1_id="900002" />
+    <id id="503" name="初始主角" level="1" exp="10" hp="100" hp_max="100" atk="7" atk_ray="4" atk_ice="0" atk_fire="0" atk_wind="0" def="1" def_ray="0" def_ice="0" def_fire="0" def_wind="0" crit="0" crit_mult="1.5" drop_num="1" drop1_id="900001" />
+</content>
